@@ -1,0 +1,14 @@
+@import "./scss/variables&mixins";
+* {
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: $backgroundColor;
+  color: $fontColor;
+}

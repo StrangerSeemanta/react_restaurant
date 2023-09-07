@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@100;300;400;500;600;700;900&family=Roboto:wght@300;700&display=swap");
+* {
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(254, 242, 244);
+  color: rgb(209, 77, 114);
+}/*# sourceMappingURL=App.css.map */
