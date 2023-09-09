@@ -1,218 +1,114 @@
-import { Fragment, useState, MouseEvent } from "react"
-import { AppBar } from "@mui/material"
-import Container from "@mui/material/Container/Container"
-import Toolbar from "@mui/material/Toolbar/Toolbar"
-import Box from "@mui/material/Box/Box"
-import Typography from "@mui/material/Typography/Typography"
-import Menu from "@mui/material/Menu/Menu"
-import MenuItem from "@mui/material/MenuItem/MenuItem"
-import Button from "@mui/material/Button/Button"
-import Tooltip from "@mui/material/Tooltip/Tooltip"
-import Avatar from "@mui/material/Avatar/Avatar"
-// Material Icons
-import AdbIcon from '@mui/icons-material/Adb';
-import IconButton from "@mui/material/IconButton/IconButton"
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
-import AvatarImage from "./../assets/avatar.png"
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { Avatar, Grid } from '@mui/material';
+import Logo from "./../../public/Logo.svg"
 
-interface NavbarProps {
-    pages: string[];
-    settingLists: string[];
-    loginStat: boolean;
+
+interface Props {
+
+    navItems: string[];
 }
 
-function Navbar({ pages, settingLists, loginStat }: NavbarProps) {
-    const [isLogin, setLoginStat] = useState(loginStat)
-    const [userName, setUserName] = useState<string | null>(null)
-    const [anchorNav, setAnchorNav] = useState<HTMLElement | null>(null);
-    const [settingAnchor, setSettingAnchor] = useState<HTMLElement | null>(null);
+const drawerWidth = 240;
 
-    // Login Logout
-    const doLogout = () => {
-        setUserName(null);
-        setLoginStat(false);
-    }
-    const doSignin = () => {
-        setUserName("shuvo sarker");
-        setLoginStat(true);
-    }
-    const handleOpenMenu = (event: MouseEvent<HTMLElement>) => {
-        setAnchorNav(event.currentTarget);
+export default function DrawerAppBar({ navItems }: Props) {
+    const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    }
-    const handleCloseMenu = () => {
-        setAnchorNav(null);
+    const handleDrawerToggle = () => {
+        setMobileOpen((prevState) => !prevState);
+    };
 
-    }
-    const handleOpenUserSetting = (event: MouseEvent<HTMLElement>) => {
-        setSettingAnchor(event.currentTarget);
-    }
-    const handleCloseUserSetting = () => {
-        setSettingAnchor(null);
-    }
+    const drawer = (
+        <Box sx={{ textAlign: 'center' }}>
+            <Typography variant="h5" sx={{ my: 2, fontWeight: "700" }}>
+                Hot Bite
+            </Typography>
+            <Divider />
+            <List>
+                {navItems.map((item) => (
+                    <ListItem key={item} disablePadding>
+                        <ListItemButton sx={{ textAlign: 'center' }}>
+                            <ListItemText primary={item} />
+
+                        </ListItemButton>
+                    </ListItem>
+                ))}
+            </List>
+        </Box>
+    );
+
+
     return (
-        <Fragment>
+        <Box sx={{ display: 'flex', height: "auto" }}>
+            <CssBaseline />
+            <AppBar position='absolute' component="nav" sx={{ mt: 2, background: "transparent", boxShadow: "none" }}>
+                <Toolbar>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        sx={{ mx: 2, display: { xs: "flex", md: 'none' } }}
+                    >
+                        <MenuIcon sx={{ width: "30px", height: "30px" }} />
+                    </IconButton>
+                    <Avatar src={Logo} sx={{ display: { xs: "none", md: "block" }, mr: "14px", width: "50px", height: "50px" }} />
+                    <Typography
+                        variant="h4"
+                        component="div"
+                        sx={{ flexGrow: 1, justifyContent: { xs: "flex-end" }, fontWeight: "700", display: { xs: 'flex', md: 'block' } }}
+                    >
+                        Hot Bite
+                    </Typography>
 
-            <AppBar position="static" sx={{ background: "rebeccapurple" }}>
-                <Container maxWidth="xl">
-                    <Toolbar disableGutters>
-                        <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="#"
-                            sx={{
-                                mr: 2,
-                                display: { xs: "none", md: "flex", },
-                                fontFamily: "Roboto",
-                                fontWeight: 700,
-                                letterSpacing: ".1rem",
-                                color: "inherit",
-                                textDecoration: "none",
-                                textTransform: "capitalize"
-                            }}
-                        >
-                            {userName ? userName : "Guest__2023"}
-                        </Typography>
+                    <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                        <Grid container>
+                            {navItems.map((item) => (
+                                <React.Fragment key={item}>
 
-                        {/* For Mobile  */}
-                        <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-                            <Tooltip title="Open Menu">
-                                <IconButton
-                                    size="large"
-                                    aria-label="account of current user"
-                                    aria-controls="menu-appbar"
-                                    aria-haspopup="true"
-                                    onClick={handleOpenMenu}
-                                    color="inherit"
-                                >
-                                    <MenuIcon />
-                                </IconButton>
-                            </Tooltip>
-
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorNav}
-                                anchorOrigin={{
-                                    vertical: "bottom",
-                                    horizontal: "left"
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: "top",
-                                    horizontal: "left"
-                                }}
-                                open={Boolean(anchorNav)}
-                                onClose={handleCloseMenu}
-                                sx={{
-                                    display: { xs: "block", md: "none" }
-                                }}
-                            >
-                                {pages.map((item, index) => (
-                                    <MenuItem key={index}>
-                                        <Typography fontFamily={"poppins"} fontWeight={"500"} textAlign={"center"}>{item}</Typography>
-                                    </MenuItem>
-                                ))}
-                            </Menu>
-                        </Box>
-                        <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="#"
-                            sx={{
-                                mr: 2,
-                                display: { xs: "flex", md: "none", },
-                                fontFamily: "Roboto",
-                                fontWeight: 700,
-                                letterSpacing: ".1rem",
-                                color: "inherit",
-                                textDecoration: "none",
-                                flexGrow: 1,
-                                textTransform: "capitalize"
-
-                            }}
-                        >
-                            {userName ? userName : "Guest__2023"}
-                        </Typography>
-                        {/* For Desktop */}
-                        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-                            {pages.map((page) => (
-                                <Button key={page} sx={{ my: 2, color: "white", display: "block" }}>{page}</Button>
+                                    <Grid >
+                                        <Button sx={{ color: '#fff', fontWeight: "700", fontSize: "18px" }}>
+                                            {item}
+                                        </Button>
+                                    </Grid>
+                                    <Divider sx={{ background: "yellow", mx: 1, width: "2px" }} flexItem orientation='vertical' />
+                                </React.Fragment>
                             ))}
-                        </Box>
+                        </Grid>
 
-                        <Box sx={{ flexGrow: 0 }}>
-                            <Tooltip title="Open Settings">
-                                <IconButton onClick={handleOpenUserSetting} sx={{ p: 0 }}>
-                                    {isLogin ?
-                                        <Avatar alt="Your Image" src={AvatarImage} sx={{ width: "50px", height: "50px" }}></Avatar>
-                                        :
-                                        <Avatar alt="sign in" sx={{ width: "35px", height: "35px" }}></Avatar>
-                                    }
-                                </IconButton>
-                            </Tooltip>
-                            <Menu
-                                id="menu-appbar"
-                                sx={{ mt: "50px" }}
-                                anchorEl={settingAnchor}
-                                anchorOrigin={{
-                                    vertical: "top",
-                                    horizontal: "right"
-                                }}
-                                transformOrigin={{
-                                    vertical: "top",
-                                    horizontal: "right"
-                                }}
-                                keepMounted
-                                open={Boolean(settingAnchor)}
-                                onClose={handleCloseUserSetting}
-                            >
-                                {
-                                    isLogin ?
-                                        <Fragment>
-                                            {(settingLists.map((settings, i) => (
-                                                <MenuItem key={i}>
-                                                    <Typography color={"rebeccapurple"} fontWeight={"600"}>
-                                                        {settings}
-                                                    </Typography>
-                                                </MenuItem>
-                                            )))
-                                            }
-                                            <MenuItem onClick={() => {
-                                                doLogout()
-                                            }}>
-                                                <Typography textAlign={"center"} color={"rebeccapurple"} fontWeight={"600"}>
-                                                    Log Out
-                                                </Typography>
-                                            </MenuItem>
-                                        </Fragment>
-                                        :
-                                        <Fragment>
-                                            <MenuItem onClick={() => {
-                                                doSignin()
-                                            }}>
-                                                <Typography textAlign={"center"} color={"rebeccapurple"} fontWeight={"600"}>
-                                                    Sign In
-                                                </Typography>
-                                            </MenuItem>
-                                            <MenuItem>
-                                                <Typography textAlign={"center"} color={"rebeccapurple"} fontWeight={"600"}>
-                                                    Create Account
-                                                </Typography>
-                                            </MenuItem>
-                                        </Fragment>
-                                }
-                            </Menu>
-                        </Box>
-                    </Toolbar>
-                </Container>
+                    </Box>
+                </Toolbar>
             </AppBar>
-
-        </Fragment >
-    )
+            <nav >
+                <Drawer
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true, // Better open performance on mobile.
+                    }}
+                    sx={{
+                        background: "transparent",
+                        display: { xs: 'block', md: 'none' },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                    }}
+                >
+                    {drawer}
+                </Drawer>
+            </nav>
+        </Box >
+    );
 }
-
-export default Navbar
