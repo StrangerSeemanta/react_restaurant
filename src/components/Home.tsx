@@ -1,7 +1,7 @@
 import { Box, Container, Typography, Button, Stack, createTheme, ThemeProvider } from "@mui/material"
 import { Fragment, useRef } from "react"
 import Grid from "@mui/material/Unstable_Grid2"
-import Background from "./../assets/background.svg"
+import Background from "./../assets/background.png"
 import Lottie, { LottieRefCurrentProps } from "lottie-react"
 import FoodAnime2 from "./../assets/Lotties/FoodAnime2.json"
 
