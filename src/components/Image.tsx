@@ -1,4 +1,3 @@
-import { CSSProperties } from "react"
 interface Props {
     imageSource: string;
     className?: string;
