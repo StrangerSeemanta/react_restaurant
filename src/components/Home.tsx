@@ -62,7 +62,7 @@ function Home() {
                         <Grid direction={"column"} width="100%" container position={"absolute"} mt={"20vh"} rowSpacing={6} columnSpacing={12}>
                             <Stack width="90%" ml={6} direction={"row"} useFlexGap flexWrap="wrap" spacing={2} justifyContent="space-between">
                                 <Box >
-                                    <Typography variant="h4" sx={{ fontSize: { xs: "4rem", sm: "5rem", md: "6rem" } }} fontWeight="800" textTransform={"uppercase"} fontFamily={"'poppins', serif"} color={"yellow"} >
+                                    <Typography variant="h4" sx={{ fontSize: { xs: "4rem", sm: "5rem", md: "6rem" } }} fontWeight="800" textTransform={"uppercase"} fontFamily={"'Lilita One', cursive"} color={"yellow"} >
                                         Hot Bite
                                     </Typography>
                                     <Typography variant="h6" sx={{ fontSize: { xs: "1rem", sm: "2rem", md: "2rem" } }} fontWeight="800" textTransform={"capitalize"} fontFamily={"'Roboto', sans-serif;"} color={"white"} >

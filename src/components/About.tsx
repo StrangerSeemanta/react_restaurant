@@ -1,10 +1,12 @@
 import { Box, Stack, Container, createTheme, ThemeProvider, Typography, ListItem, Divider } from "@mui/material";
 import { Fragment, useRef, useState } from "react";
-
+import foodPic from "./../assets/food_pic.jpg";
+import Pancake from "./../assets/pancake.png"
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import AboutTypo from "./../assets/Lotties/AboutTyp.json"
 import AboutAnime from "./../assets/Lotties/About.json"
-
+import ImageText from "./ImageText";
+import Image from "./Image";
 declare module '@mui/material/styles' {
     interface Palette {
         ochre: Palette['primary'];
@@ -42,12 +44,14 @@ theme = createTheme(theme, {
     palette: {
         salmon: theme.palette.augmentColor({
             color: {
-                main: "#FF5733",
+                main: "rgb(209, 77, 114)",
             },
             name: "salmon"
         })
     }
 })
+const textColor = "rgb(209, 77, 114)";
+const specialities = ["Fast Delivary", "24 x 7 Services", " Fresh & Healthy", "Membership Features"];
 function About() {
     const aboutTypo = useRef<LottieRefCurrentProps | null>(null);
     const aboutAnime = useRef<LottieRefCurrentProps | null>(null);
@@ -63,27 +67,52 @@ function About() {
                             {/* <Typography textAlign="center" fontWeight="700" sx={{ fontFamily: "'poppins',serif", color: "#FF5733", mb: 3 }} variant="h2" >About US</Typography> */}
                         </Stack>
 
-                        <Stack direction={"row"} useFlexGap flexWrap="wrap" justifyContent="space-between">
+                        <Stack direction={{ md: "row", xs: "column" }} useFlexGap justifyContent="space-between">
                             <Lottie style={{ height: "50vh" }} lottieRef={aboutAnime} animationData={AboutAnime} />
-                            <Box sx={{ width: "55%", height: "70vh", }}>
-                                <Typography textAlign="left" fontWeight="700" textTransform="capitalize" variant="h5" color="#FF5733" >Our Promises:</Typography>
-                                <Typography my={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt natus blanditiis totam aperiam hic dicta excepturi laudantium minus inventore accusantium quia, velit error id, reprehenderit ad autem porro sequi ea ullam soluta iste! Iste.</Typography>
-                                <Box>
-                                    <Typography variant="h6" fontWeight={600} color={"#FF5733"}>Speciality</Typography>
-                                    <ListItem> Fast Delivary</ListItem>
-                                    <Divider />
-                                    <ListItem> 24 x 7 Services</ListItem>
-                                    <Divider />
+                            <Box sx={{ width: { xs: "100%", md: "55%" }, height: "100%", mt: { xs: 4 } }}>
+                                <Typography sx={{ textAlign: { xs: "center", md: "left" } }} fontWeight="700" textTransform="capitalize" variant="h4" color={textColor} >Our Promises:</Typography>
+                                <Typography sx={{ textAlign: { xs: "center", md: "left" } }} my={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt natus blanditiis totam aperiam hic dicta excepturi laudantium minus inventore accusantium quia, velit error id, reprehenderit ad autem porro sequi ea ullam soluta iste! Iste.</Typography>
+                                <Box >
+                                    <Typography sx={{ textAlign: { xs: "center", md: "left" } }} variant="h4" fontWeight={600} color={textColor}>Speciality</Typography>
+                                    {specialities.map((features, no) => (
+                                        <Fragment key={no}>
+                                            <ListItem >
+                                                <Typography sx={{ textAlign: { xs: "center", md: "left" } }} variant="subtitle1" width="100%" >
+                                                    {features}
+                                                </Typography>
+                                            </ListItem>
+                                            <Divider />
+                                        </Fragment>
+                                    ))}
 
-                                    <ListItem> Fresh & Healthy</ListItem>
-                                    <Divider />
-
-                                    <ListItem> Membership Features</ListItem>
                                 </Box>
                             </Box>
                         </Stack>
-                    </Box>
 
+
+                    </Box>
+                    <Box mt={3}>
+                        <ImageText
+                            imagePos="left"
+                            heading="Budget Friendly Pancake"
+                            textBody="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae accusantium iure aut nulla, ipsam pariatur! Nemo consectetur repellendus asperiores ipsam vel quia, aperiam a aliquid vero libero suscipit rerum modi corporis accusamus. Eaque, molestiae."
+                            headingColor={textColor}
+                        >
+                            <Image csx={{ my: 2 }} imageSource={foodPic} floatPic={Pancake} textOnFloat="Pancake" className="Pancake" />
+                        </ImageText>
+                    </Box>
+                    <Divider sx={{ height: '4px', width: "70%", borderRadius: "40px", background: "rgba(255, 171, 171,0.8)", my: 6, mx: "auto" }} />
+                    <Box mt={3}>
+                        <ImageText
+                            imagePos="left"
+                            heading="Budget Friendly Pancake"
+                            textBody="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae accusantium iure aut nulla, ipsam pariatur! Nemo consectetur repellendus asperiores ipsam vel quia, aperiam a aliquid vero libero suscipit rerum modi corporis accusamus. Eaque, molestiae."
+                            headingColor={textColor}
+                        >
+                            <Image csx={{ my: 2 }} imageSource={foodPic} floatPic={Pancake} textOnFloat="Pancake" className="Pancake" />
+                        </ImageText>
+                    </Box>
+                    <Divider sx={{ height: '4px', width: "70%", borderRadius: "40px", background: "rgba(255, 171, 171,0.8)", my: 6, mx: "auto" }} />
                 </Container>
             </ThemeProvider>
         </Fragment>

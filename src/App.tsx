@@ -12,6 +12,7 @@ function App() {
       <Navbar navItems={pages}></Navbar>
       <Home />
       <About />
+
     </Fragment>
   )
 }
