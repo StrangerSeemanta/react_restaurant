@@ -7,6 +7,10 @@ import AboutTypo from "./../assets/Lotties/AboutTyp.json"
 import AboutAnime from "./../assets/Lotties/About.json"
 import ImageText from "./ImageText";
 import Image from "./Image";
+
+import Marquee from './Marquee';
+
+
 declare module '@mui/material/styles' {
     interface Palette {
         ochre: Palette['primary'];
@@ -97,6 +101,13 @@ function About() {
                             heading="Budget Friendly Pancake"
                             textBody="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae accusantium iure aut nulla, ipsam pariatur! Nemo consectetur repellendus asperiores ipsam vel quia, aperiam a aliquid vero libero suscipit rerum modi corporis accusamus. Eaque, molestiae."
                             headingColor={textColor}
+                            bottomComp={
+                                <Box sx={{ width: "100%", height: "10vh", background: "rgb(252, 200, 209)" }}>
+                                    <Marquee>
+                                        <Typography width="100%" height="100%" fontWeight="700" textAlign="center" display="flex" alignItems="center" justifyContent="center" variant='h5' color="rgb(209, 77, 114)">Grab The Offert | Get 20% Discount </Typography>
+                                    </Marquee>
+                                </Box>
+                            }
                         >
                             <Image csx={{ my: 2 }} imageSource={foodPic} floatPic={Pancake} textOnFloat="Pancake" className="Pancake" />
                         </ImageText>
@@ -108,6 +119,13 @@ function About() {
                             heading="Budget Friendly Pancake"
                             textBody="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae accusantium iure aut nulla, ipsam pariatur! Nemo consectetur repellendus asperiores ipsam vel quia, aperiam a aliquid vero libero suscipit rerum modi corporis accusamus. Eaque, molestiae."
                             headingColor={textColor}
+                            bottomComp={
+                                <Box sx={{ width: "100%", height: "10vh", background: "rgb(252, 200, 209)" }}>
+                                    <Marquee>
+                                        <Typography width="100%" height="100%" fontWeight="700" textAlign="center" display="flex" alignItems="center" justifyContent="center" variant='h5' color="rgb(209, 77, 114)">Grab The Offert | Get 20% Discount </Typography>
+                                    </Marquee>
+                                </Box>
+                            }
                         >
                             <Image csx={{ my: 2 }} imageSource={foodPic} floatPic={Pancake} textOnFloat="Pancake" className="Pancake" />
                         </ImageText>
