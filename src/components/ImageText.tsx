@@ -34,10 +34,10 @@ function ImageText({ children, margin, imagePos, textBody, heading, headingColor
                 <Stack direction={{ md: "row", xs: "column" }} useFlexGap justifyContent="space-between">
                     {isImageOnLeft ?
                         <>
-                            <Box sx={{ mt: 4, mx: { sm: "auto", md: "0px" }, py: 2, width: { xs: "100%", sm: "70%", md: "45%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
+                            <Box sx={{ mt: 4, mx: { sm: "auto", md: "0px" }, py: 2, width: { xs: "100%", sm: "70%", md: "40%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
                                 {children}
                             </Box>
-                            <Box display="flex" flexDirection="column" justifyContent="space-around" sx={{ mt: 4, py: 2, width: { xs: "100%", md: "45%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
+                            <Box display="flex" flexDirection="column" justifyContent="space-around" sx={{ mt: 4, py: 2, width: { xs: "100%", md: "50%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
                                 <Typography variant="h2" className="foodName" color={headingColor} fontFamily="'poppins',sans-serif" fontWeight="600">{heading}</Typography>
                                 <Typography variant='body1' fontWeight={300} >{textBody}</Typography>
                                 <Box>

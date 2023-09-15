@@ -1,5 +1,5 @@
-import { Box, Stack, Container, createTheme, ThemeProvider, Typography, ListItem, Divider } from "@mui/material";
-import { Fragment, useRef, useState } from "react";
+import { Box, Stack, Container, createTheme, ThemeProvider, Typography, ListItem, Divider, Radio } from "@mui/material";
+import { Fragment, useRef, useState, useEffect } from "react";
 import foodPic from "./../assets/food_pic.jpg";
 import Pancake from "./../assets/pancake.png"
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
@@ -9,6 +9,11 @@ import Image from "./Image";
 import AboutPic from "./../assets/aboutPic.png"
 import Marquee from './Marquee';
 
+// Speciality Banners
+import AmbienceBG from "./../assets/AmbienceBG.png"
+import CateringBG from "./../assets/CateringBG.png"
+import QualityBG from "./../assets/QualityBG.png"
+import MenuBG from "./../assets/LargermenuBG.png"
 
 declare module '@mui/material/styles' {
     interface Palette {
@@ -30,6 +35,11 @@ declare module '@mui/material/Button' {
     }
 }
 
+declare module '@mui/material/Radio' {
+    interface RadioPropsColorOverrides {
+        salmon: true;
+    }
+}
 let theme = createTheme({
     palette: {
         ochre: {
@@ -54,10 +64,25 @@ theme = createTheme(theme, {
     }
 })
 const textColor = "rgb(209, 77, 114)";
-const specialities = ["Fast Delivary", "24 x 7 Services", " Fresh & Healthy", "Membership Features"];
+const promises = ["Fast Delivary", "24 x 7 Services", " Fresh & Healthy", "Membership Features"];
+const specialities = [AmbienceBG, CateringBG, QualityBG, MenuBG];
 function About() {
     const aboutTypo = useRef<LottieRefCurrentProps | null>(null);
     const [typoDirectionReversed, setTypoDirection] = useState(false)
+
+    // const [selectedSpeciality, setSelectedSpeciality] = useState(" ");
+    const [specialityIndex, setSpecialityIndex] = useState(0);
+
+    const handleRadioChange = (index: number) => {
+        setSpecialityIndex(index)
+    }
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setSpecialityIndex((prevIndex) => (prevIndex + 1) % specialities.length);
+        }, 3000);
+
+        return () => clearTimeout(timeoutId); // Clear the timeout on unmount or when dependencies change
+    }, [specialityIndex]);
     return (
         <Fragment>
             <ThemeProvider theme={theme}>
@@ -79,8 +104,8 @@ function About() {
 
 
                                     <Box >
-                                        <Typography sx={{ textAlign: { xs: "center", md: "left" } }} variant="h4" fontWeight={600} color={textColor}>Speciality</Typography>
-                                        {specialities.map((features, no) => (
+                                        <Typography sx={{ textAlign: { xs: "center", md: "left" } }} variant="h4" fontWeight={600} color={textColor}>Our Promises: </Typography>
+                                        {promises.map((features, no) => (
                                             <Fragment key={no}>
                                                 <ListItem >
                                                     <Typography sx={{ textAlign: { xs: "center", md: "left" } }} variant="subtitle1" width="100%" >
@@ -99,10 +124,28 @@ function About() {
 
 
                         </Box>
-                        <Box mt={5}>
+                        {/* Chefs */}
+                        <Box my={5} height="60vh" display="flex" flexDirection="column" justifyContent="center">
+                            <Box height={{ xs: "20vh", sm: "50vh" }} sx={{ overflow: "hidden" }}>
+                                <Box width="100%" height="100%" sx={{ background: `url(${specialities[specialityIndex]})`, backgroundPosition: "center", backgroundSize: { xs: "contain", md: "cover" }, backgroundRepeat: "no-repeat", transition: "all linear 500ms" }}></Box>
 
+                            </Box>
+                            <Box display="flex" height="10vh" justifyContent="center" alignItems="center">
+                                {specialities.map((speciality, index) => (
+                                    <Radio
+                                        color="salmon"
+                                        key={speciality}
+                                        checked={specialityIndex === index}
+                                        value={index}
+                                        onChange={() => { handleRadioChange(index) }}
+                                    />
+                                ))}
+                            </Box>
                         </Box>
+
+                        {/* Special Menus */}
                         <Box mt={3}>
+                            <Typography mb={4} variant="h1" fontWeight="400" textTransform="uppercase" fontFamily="'lilita one',sans-serif" textAlign="center" color="green">Hot Offers</Typography>
                             <ImageText
                                 imagePos="left"
                                 heading="Budget Friendly Pancake"
