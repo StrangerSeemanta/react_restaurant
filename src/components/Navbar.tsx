@@ -14,7 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Avatar, Grid } from '@mui/material';
-import Logo from "./../../public/Logo.svg"
+import Logo from "./../assets/Logo.svg"
 
 
 interface Props {
