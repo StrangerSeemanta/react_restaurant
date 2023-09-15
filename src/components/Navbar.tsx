@@ -30,7 +30,9 @@ export default function DrawerAppBar({ navItems }: Props) {
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
-
+    const openLink = (url: string) => {
+        window.location.href = `#${url.toLowerCase()}`
+    }
     const drawer = (
         <Box sx={{ textAlign: 'center' }}>
             <Typography variant="h5" sx={{ my: 2, fontWeight: "700" }}>
@@ -40,7 +42,7 @@ export default function DrawerAppBar({ navItems }: Props) {
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemButton sx={{ textAlign: 'center' }} onClick={() => { openLink(item) }}>
                             <ListItemText primary={item} />
 
                         </ListItemButton>
@@ -80,7 +82,7 @@ export default function DrawerAppBar({ navItems }: Props) {
                                 <React.Fragment key={item}>
 
                                     <Grid >
-                                        <Button sx={{ color: '#fff', fontWeight: "700", fontSize: "18px" }}>
+                                        <Button sx={{ color: '#fff', fontWeight: "700", fontSize: "18px" }} onClick={() => { openLink(item) }}>
                                             {item}
                                         </Button>
                                     </Grid>

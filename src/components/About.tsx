@@ -63,75 +63,62 @@ function About() {
     return (
         <Fragment>
             <ThemeProvider theme={theme}>
+                <section id="about">
+                    <Container sx={{ mt: 4 }} >
+                        <Box>
+                            <Stack>
+                                <Lottie style={{ height: "50vh" }} onComplete={() => { aboutTypo.current?.setSpeed(0.2); typoDirectionReversed ? aboutTypo.current?.playSegments([40, 0], true) : aboutTypo.current?.playSegments([0, 40], true); setTypoDirection(!typoDirectionReversed) }} onMouseEnter={() => { aboutTypo.current?.stop(); aboutTypo.current?.setSpeed(0.3); aboutTypo.current?.play() }} loop={false} lottieRef={aboutTypo} animationData={AboutTypo} />
+                                {/* <Typography textAlign="center" fontWeight="700" sx={{ fontFamily: "'poppins',serif", color: "#FF5733", mb: 3 }} variant="h2" >About US</Typography> */}
+                            </Stack>
 
-                <Container sx={{ mt: 4 }}>
-                    <Box>
-                        <Stack>
-                            <Lottie style={{ height: "50vh" }} onComplete={() => { aboutTypo.current?.setSpeed(0.2); typoDirectionReversed ? aboutTypo.current?.playSegments([40, 0], true) : aboutTypo.current?.playSegments([0, 40], true); setTypoDirection(!typoDirectionReversed) }} onMouseEnter={() => { aboutTypo.current?.stop(); aboutTypo.current?.setSpeed(0.3); aboutTypo.current?.play() }} loop={false} lottieRef={aboutTypo} animationData={AboutTypo} />
-                            {/* <Typography textAlign="center" fontWeight="700" sx={{ fontFamily: "'poppins',serif", color: "#FF5733", mb: 3 }} variant="h2" >About US</Typography> */}
-                        </Stack>
+                            <Stack direction={{ md: "row", xs: "column" }} useFlexGap justifyContent="space-between">
+                                <Lottie style={{ height: "50vh" }} lottieRef={aboutAnime} animationData={AboutAnime} />
+                                <Box sx={{ width: { xs: "100%", md: "55%" }, height: "100%", mt: { xs: 4 } }}>
+                                    <Typography sx={{ textAlign: { xs: "center", md: "left" } }} fontWeight="700" textTransform="capitalize" variant="h4" color={textColor} >Our Promises:</Typography>
+                                    <Typography sx={{ textAlign: { xs: "center", md: "left" } }} my={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt natus blanditiis totam aperiam hic dicta excepturi laudantium minus inventore accusantium quia, velit error id, reprehenderit ad autem porro sequi ea ullam soluta iste! Iste.</Typography>
+                                    <Box >
+                                        <Typography sx={{ textAlign: { xs: "center", md: "left" } }} variant="h4" fontWeight={600} color={textColor}>Speciality</Typography>
+                                        {specialities.map((features, no) => (
+                                            <Fragment key={no}>
+                                                <ListItem >
+                                                    <Typography sx={{ textAlign: { xs: "center", md: "left" } }} variant="subtitle1" width="100%" >
+                                                        {features}
+                                                    </Typography>
+                                                </ListItem>
+                                                <Divider />
+                                            </Fragment>
+                                        ))}
 
-                        <Stack direction={{ md: "row", xs: "column" }} useFlexGap justifyContent="space-between">
-                            <Lottie style={{ height: "50vh" }} lottieRef={aboutAnime} animationData={AboutAnime} />
-                            <Box sx={{ width: { xs: "100%", md: "55%" }, height: "100%", mt: { xs: 4 } }}>
-                                <Typography sx={{ textAlign: { xs: "center", md: "left" } }} fontWeight="700" textTransform="capitalize" variant="h4" color={textColor} >Our Promises:</Typography>
-                                <Typography sx={{ textAlign: { xs: "center", md: "left" } }} my={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt natus blanditiis totam aperiam hic dicta excepturi laudantium minus inventore accusantium quia, velit error id, reprehenderit ad autem porro sequi ea ullam soluta iste! Iste.</Typography>
-                                <Box >
-                                    <Typography sx={{ textAlign: { xs: "center", md: "left" } }} variant="h4" fontWeight={600} color={textColor}>Speciality</Typography>
-                                    {specialities.map((features, no) => (
-                                        <Fragment key={no}>
-                                            <ListItem >
-                                                <Typography sx={{ textAlign: { xs: "center", md: "left" } }} variant="subtitle1" width="100%" >
-                                                    {features}
-                                                </Typography>
-                                            </ListItem>
-                                            <Divider />
-                                        </Fragment>
-                                    ))}
-
+                                    </Box>
                                 </Box>
-                            </Box>
-                        </Stack>
+                            </Stack>
 
 
-                    </Box>
-                    <Box mt={3}>
-                        <ImageText
-                            imagePos="left"
-                            heading="Budget Friendly Pancake"
-                            textBody="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae accusantium iure aut nulla, ipsam pariatur! Nemo consectetur repellendus asperiores ipsam vel quia, aperiam a aliquid vero libero suscipit rerum modi corporis accusamus. Eaque, molestiae."
-                            headingColor={textColor}
-                            bottomComp={
-                                <Box sx={{ width: "100%", height: "10vh", background: "rgb(252, 200, 209)" }}>
-                                    <Marquee>
-                                        <Typography width="100%" height="100%" fontWeight="700" textAlign="center" display="flex" alignItems="center" justifyContent="center" variant='h5' color="rgb(209, 77, 114)">Grab The Offert | Get 20% Discount </Typography>
-                                    </Marquee>
-                                </Box>
-                            }
-                        >
-                            <Image csx={{ my: 2 }} imageSource={foodPic} floatPic={Pancake} textOnFloat="Pancake" className="Pancake" />
-                        </ImageText>
-                    </Box>
-                    <Divider sx={{ height: '4px', width: "70%", borderRadius: "40px", background: "rgba(255, 171, 171,0.8)", my: 6, mx: "auto" }} />
-                    <Box mt={3}>
-                        <ImageText
-                            imagePos="left"
-                            heading="Budget Friendly Pancake"
-                            textBody="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae accusantium iure aut nulla, ipsam pariatur! Nemo consectetur repellendus asperiores ipsam vel quia, aperiam a aliquid vero libero suscipit rerum modi corporis accusamus. Eaque, molestiae."
-                            headingColor={textColor}
-                            bottomComp={
-                                <Box sx={{ width: "100%", height: "10vh", background: "rgb(252, 200, 209)" }}>
-                                    <Marquee>
-                                        <Typography width="100%" height="100%" fontWeight="700" textAlign="center" display="flex" alignItems="center" justifyContent="center" variant='h5' color="rgb(209, 77, 114)">Grab The Offert | Get 20% Discount </Typography>
-                                    </Marquee>
-                                </Box>
-                            }
-                        >
-                            <Image csx={{ my: 2 }} imageSource={foodPic} floatPic={Pancake} textOnFloat="Pancake" className="Pancake" />
-                        </ImageText>
-                    </Box>
-                    <Divider sx={{ height: '4px', width: "70%", borderRadius: "40px", background: "rgba(255, 171, 171,0.8)", my: 6, mx: "auto" }} />
-                </Container>
+                        </Box>
+                        <Box mt={5}>
+
+                        </Box>
+                        <Box mt={3}>
+                            <ImageText
+                                imagePos="left"
+                                heading="Budget Friendly Pancake"
+                                textBody="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae accusantium iure aut nulla, ipsam pariatur! Nemo consectetur repellendus asperiores ipsam vel quia, aperiam a aliquid vero libero suscipit rerum modi corporis accusamus. Eaque, molestiae."
+                                headingColor={textColor}
+                                bottomComp={
+                                    <Box sx={{ width: "100%", height: "10vh", background: "rgb(252, 200, 209)" }}>
+                                        <Marquee>
+                                            <Typography width="100%" height="100%" fontWeight="700" textAlign="center" display="flex" alignItems="center" justifyContent="center" variant='h5' color="rgb(209, 77, 114)">Grab The Offert | Get 20% Discount </Typography>
+                                        </Marquee>
+                                    </Box>
+                                }
+                            >
+                                <Image csx={{ my: 2 }} imageSource={foodPic} floatPic={Pancake} textOnFloat="Pancake" className="Pancake" />
+                            </ImageText>
+                        </Box>
+                        <Divider sx={{ height: '4px', width: "70%", borderRadius: "40px", background: "rgba(255, 171, 171,0.8)", my: 6, mx: "auto" }} />
+                    </Container>
+                </section>
+
             </ThemeProvider>
         </Fragment>
     )
