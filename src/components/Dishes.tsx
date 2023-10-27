@@ -23,7 +23,7 @@ function ItemCard({ productDetails, aos }: ITEMCARDPROPS) {
     return (
         <Fragment>
             <div className="topdishes">
-                <Box p={3} height="80vh" width="100%" sx={{
+                <Box p={3} minHeight="80vh" width="100%" sx={{
                     background: "#ebedf0", position: "relative", boxShadow: "5px 5px 10px #b8b9ba"
                 }} data-aos={aos.style} data-aos-easing="ease-out-cubic" data-aos-delay={aos.delay} data-aos-duration={1500}>
                     <Box sx={{ height: "70%", width: "100%" }}>
