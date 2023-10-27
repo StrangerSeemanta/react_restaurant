@@ -1,5 +1,5 @@
 import { Fragment, ReactNode, useState, useEffect } from 'react'
-import { Stack, Box, Typography } from '@mui/material'
+import { Stack, Box, Typography, Divider } from '@mui/material'
 interface Props {
     children: ReactNode;
     imagePos: "left" | "right";
@@ -16,8 +16,9 @@ interface Props {
     heading?: string;
     headingColor?: string;
     bottomComp?: ReactNode;
+    showDivider: boolean;
 }
-function ImageText({ children, margin, imagePos, textBody, heading, headingColor, bottomComp }: Props) {
+function ImageText({ children, margin, imagePos, textBody, heading, headingColor, bottomComp, showDivider }: Props) {
     const [isImageOnLeft, setImageOnLeft] = useState(true);
 
     useEffect(() => {
@@ -34,10 +35,10 @@ function ImageText({ children, margin, imagePos, textBody, heading, headingColor
                 <Stack direction={{ md: "row", xs: "column" }} useFlexGap justifyContent="space-between">
                     {isImageOnLeft ?
                         <>
-                            <Box sx={{ mt: 4, mx: { sm: "auto", md: "0px" }, py: 2, width: { xs: "100%", sm: "70%", md: "40%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
+                            <Box data-aos="flip-right" data-aos-duration="2500" sx={{ mt: 4, mx: { sm: "auto", md: "0px" }, py: 2, width: { xs: "100%", sm: "70%", md: "40%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
                                 {children}
                             </Box>
-                            <Box display="flex" flexDirection="column" justifyContent="space-around" sx={{ mt: 4, py: 2, width: { xs: "100%", md: "50%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
+                            <Box data-aos="flip-left" data-aos-duration="2500" display="flex" flexDirection="column" justifyContent="space-around" sx={{ mt: 4, py: 2, width: { xs: "100%", md: "50%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
                                 <Typography variant="h2" className="foodName" color={headingColor} fontFamily="'poppins',sans-serif" fontWeight="600">{heading}</Typography>
                                 <Typography variant='body1' fontWeight={300} >{textBody}</Typography>
                                 <Box>
@@ -48,18 +49,20 @@ function ImageText({ children, margin, imagePos, textBody, heading, headingColor
                         :
                         <>
 
-                            <Box display="flex" flexDirection="column" justifyContent="space-around" sx={{ mt: 4, py: 2, width: { xs: "100%", md: "45%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
+                            <Box data-aos="flip-left" data-aos-duration="2500" display="flex" flexDirection="column" justifyContent="space-around" sx={{ mt: 4, py: 2, width: { xs: "100%", md: "45%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
                                 <Typography variant="h2" className="foodName" color={headingColor} fontFamily="'poppins',sans-serif" fontWeight="600">{heading}</Typography>
                                 <Typography variant='body1' fontWeight={300} >{textBody}</Typography>
                                 <Box>
                                     {bottomComp}
                                 </Box>
                             </Box>
-                            <Box sx={{ mt: 4, mx: { sm: "auto", md: "0px" }, py: 2, width: { xs: "100%", sm: "70%", md: "45%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
+                            <Box data-aos="flip-right" data-aos-duration="2500" sx={{ mt: 4, mx: { sm: "auto", md: "0px" }, py: 2, width: { xs: "100%", sm: "70%", md: "45%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
                                 {children}
                             </Box>
                         </>}
                 </Stack>
+                {showDivider && <Divider sx={{ height: '4px', width: "70%", borderRadius: "40px", background: "rgba(255, 171, 171,0.8)", my: 6, mx: "auto" }} />
+                }
             </Box>
         </Fragment>
     )

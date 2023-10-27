@@ -1,13 +1,10 @@
 import { Box, Stack, Container, createTheme, ThemeProvider, Typography, ListItem, Divider, Radio, Skeleton } from "@mui/material";
 import { Fragment, useRef, useState, useEffect, useCallback } from "react";
-import foodPic from "./../assets/food_pic.jpg";
-import Pancake from "./../assets/pancake.png"
+
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import AboutTypo from "./../assets/Lotties/AboutTyp.json"
-import ImageText from "./ImageText";
-import ImageComp from "./Image";
+
 import AboutPic from "./../assets/aboutPic.png"
-import Marquee from './Marquee';
 // Speciality Banners
 import AmbienceBG from "./../assets/AmbienceBG.png"
 import CateringBG from "./../assets/CateringBG.png"
@@ -99,8 +96,9 @@ function About() {
 
     return (
         <Fragment>
-            <ThemeProvider theme={theme}>
-                <section id="about">
+            <section id="about" data-aos="fade-in" className="fixed">
+
+                <ThemeProvider theme={theme}>
                     <Container sx={{ mt: 4 }} >
                         <Box>
                             <Stack>
@@ -109,10 +107,10 @@ function About() {
                             </Stack>
 
                             <Stack direction={{ md: "row", xs: "column" }} useFlexGap justifyContent="space-between">
-                                <Box sx={{ width: { xs: "100%", md: "45%" }, height: { xs: "50vh", md: '100vh' } }}>
+                                <Box data-aos="fade-right" sx={{ width: { xs: "100%", md: "45%" }, height: { xs: "50vh", md: '100vh' } }}>
                                     <img width="100%" height="100%" style={{ objectFit: "cover" }} src={AboutPic} alt="Picture Of Cookings" />
                                 </Box>
-                                <Box sx={{ width: { xs: "100%", md: "50%" }, height: "100%", mt: { xs: 4 } }}>
+                                <Box data-aos="fade-left" sx={{ width: { xs: "100%", md: "50%" }, height: "100%", mt: { xs: 4 } }}>
                                     <Typography sx={{ textAlign: { xs: "center", md: "left" } }} fontWeight="700" textTransform="capitalize" variant="h4" color={textColor} >Who are we?</Typography>
                                     <Typography sx={{ textAlign: { xs: "center", md: "left" } }} my={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt natus blanditiis totam aperiam hic dicta excepturi laudantium minus inventore accusantium quia, velit error id, reprehenderit ad autem porro sequi ea ullam soluta iste! Iste.</Typography>
 
@@ -140,7 +138,7 @@ function About() {
                         </Box>
                         {/* Chefs */}
 
-                        <Box my={5} height="60vh" display="flex" flexDirection="column" justifyContent="center">
+                        <Box data-aos="zoom-out" my={5} height="60vh" display="flex" flexDirection="column" justifyContent="center">
 
                             <Box height={{ xs: "20vh", sm: "50vh" }} sx={{ overflow: "hidden" }}>
                                 {BannerLoading ?
@@ -164,30 +162,11 @@ function About() {
                         </Box>
 
 
-                        {/* Special Menus */}
-                        <Box mt={3}>
-                            <Typography mb={4} variant="h1" fontWeight="400" textTransform="uppercase" fontFamily="'lilita one',sans-serif" textAlign="center" color="green">Hot Offers</Typography>
-                            <ImageText
-                                imagePos="left"
-                                heading="Budget Friendly Pancake"
-                                textBody="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae accusantium iure aut nulla, ipsam pariatur! Nemo consectetur repellendus asperiores ipsam vel quia, aperiam a aliquid vero libero suscipit rerum modi corporis accusamus. Eaque, molestiae."
-                                headingColor={textColor}
-                                bottomComp={
-                                    <Box sx={{ width: "100%", height: "10vh", background: "rgb(252, 200, 209)" }}>
-                                        <Marquee>
-                                            <Typography width="100%" height="100%" fontWeight="700" textAlign="center" display="flex" alignItems="center" justifyContent="center" variant='h5' color="rgb(209, 77, 114)">Grab The Offert | Get 20% Discount </Typography>
-                                        </Marquee>
-                                    </Box>
-                                }
-                            >
-                                <ImageComp csx={{ my: 2 }} imageSource={foodPic} floatPic={Pancake} textOnFloat="Pancake" className="Pancake" />
-                            </ImageText>
-                        </Box>
-                        <Divider sx={{ height: '4px', width: "70%", borderRadius: "40px", background: "rgba(255, 171, 171,0.8)", my: 6, mx: "auto" }} />
                     </Container>
-                </section>
 
-            </ThemeProvider >
+                </ThemeProvider >
+            </section>
+
         </Fragment >
     )
 }

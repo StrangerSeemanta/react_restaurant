@@ -1,0 +1,20 @@
+[
+  {
+    "dishName": "Burger",
+    "imageSrc": "./src/assets/Burger_TD.svg",
+    "offerPrice": "7$",
+    "regularPrice": "12$"
+  },
+  {
+    "dishName": "Pancake",
+    "imageSrc": "./src/assets/Pancake_TD.svg",
+    "offerPrice": "6$",
+    "regularPrice": "10$"
+  },
+  {
+    "dishName": "Chicken Fry",
+    "imageSrc": "./src/assets/ChickenFry_TD.svg",
+    "offerPrice": "6$",
+    "regularPrice": "8$"
+  }
+]

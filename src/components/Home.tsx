@@ -66,7 +66,7 @@ function Home() {
         <Fragment>
             <ThemeProvider theme={theme}>
                 <section id="home">
-                    <Box position={"relative"} sx={{ overflowX: "hidden", background: `url(${Background})`, backgroundPosition: "center", height: "100vh", m: 0 }}>
+                    <Box position={"relative"} sx={{ overflowX: "hidden", background: `url(${Background})`, backgroundPosition: "center", backgroundAttachment: "fixed", height: "100vh", m: 0 }}>
                         <Container >
                             <Grid direction={"column"} sx={{ justifyContent: { xs: "center", sm: "space-evenly" } }} alignItems="center" height="100%" width="100%" container position={"absolute"} rowSpacing={6} columnSpacing={12}>
                                 <Stack width="100%" direction={"row"} useFlexGap flexWrap="wrap" spacing={2} justifyContent="center" alignItems={"center"}>

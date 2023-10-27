@@ -57,7 +57,7 @@ export default function DrawerAppBar({ navItems }: Props) {
         <Box sx={{ display: 'flex', height: "auto" }}>
             <CssBaseline />
             <AppBar position='absolute' component="nav" sx={{ mt: 2, background: "transparent", boxShadow: "none" }}>
-                <Toolbar>
+                <Toolbar sx={{ display: { xs: "flex" }, justifyContent: "space-between" }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -67,11 +67,11 @@ export default function DrawerAppBar({ navItems }: Props) {
                     >
                         <MenuIcon sx={{ width: "30px", height: "30px" }} />
                     </IconButton>
-                    <Avatar src={Logo} sx={{ display: { xs: "none", md: "block" }, mr: "14px", width: "50px", height: "50px" }} />
+                    <Avatar component="div" src={Logo} sx={{ display: { xs: "flex", md: "block" }, mr: "14px", width: "50px", height: "50px" }} />
                     <Typography
                         variant="h4"
                         component="div"
-                        sx={{ flexGrow: 1, justifyContent: { xs: "flex-end" }, fontWeight: "700", display: { xs: 'flex', md: 'block' } }}
+                        sx={{ flexGrow: 1, justifyContent: { xs: "flex-end" }, fontWeight: "700", display: { xs: 'none', md: 'block' } }}
                     >
                         Hot Bite
                     </Typography>
