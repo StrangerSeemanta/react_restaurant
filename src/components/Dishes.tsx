@@ -1,5 +1,5 @@
 import { Fragment, ReactNode } from "react"
-import { Container, Box, Typography, Button } from "@mui/material"
+import { Container, Box, Typography, Link } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
 import TopDishesJSON from "./../data/TopDishes.json"
 
@@ -66,13 +66,15 @@ function Dishes() {
                         </Grid>
 
                         <Box data-aos="zoom-in" sx={{ display: "flex", justifyContent: "center", alignItems: "center" }} mt={6}>
-                            <Button color="error" variant="contained" sx={{ fontSize: "25px", color: "white", fontWeight: "600" }}>Show All Items</Button>
+                            <Link href="/src/pages/menus/index.html" color={"white"} underline="none" variant="h5" sx={{ transitionDuration: "250ms", transitionTimingFunction: "linear", transitionProperty: "all", cursor: "pointer", background: textColor, userSelect: "none", p: 2, borderRadius: '5px', ":hover": { filter: "brightness(1.1)" }, ":active": { filter: "brightness(0.8)" } }} fontWeight="700"
+
+                            >Show All Items</Link>
 
                         </Box>
                     </Box>
                 </Container>
             </section>
-        </Fragment>
+        </Fragment >
     )
 }
 
