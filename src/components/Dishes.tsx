@@ -1,16 +1,17 @@
 import { Fragment, ReactNode } from "react"
 import { Container, Box, Typography, Link } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
-import TopDishesJSON from "./../data/TopDishes.json"
-
+import BurgerImgSrc from "./../assets/Burger_TD.svg"
+import PancakeImgSrc from "./../assets/Pancake_TD.svg"
+import ChickenImgSrc from "./../assets/ChickenFry_TD.svg"
 
 
 const textColor = "rgb(209, 77, 114)";
 
 interface ITEMCARDPROPS {
     productDetails: {
-        imageSrc: string;
         dishName: ReactNode;
+        imageSrc: string;
         offerPrice: string;
         regularPrice: string;
     }
@@ -41,6 +42,26 @@ function ItemCard({ productDetails, aos }: ITEMCARDPROPS) {
 }
 function Dishes() {
 
+    const dishes = [
+        {
+            "dishName": "Burger",
+            "imageSrc": BurgerImgSrc,
+            "offerPrice": "7$",
+            "regularPrice": "12$"
+        },
+        {
+            "dishName": "Pancake",
+            "imageSrc": PancakeImgSrc,
+            "offerPrice": "6$",
+            "regularPrice": "10$"
+        },
+        {
+            "dishName": "Chicken Fry",
+            "imageSrc": ChickenImgSrc,
+            "offerPrice": "6$",
+            "regularPrice": "8$"
+        }
+    ]
 
     return (
         <Fragment>,
@@ -54,7 +75,7 @@ function Dishes() {
                     </Stack> */}
                         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 8, md: 12 }}>
                             {
-                                TopDishesJSON.map((dish, dishIndex) => (
+                                dishes.map((dish, dishIndex) => (
                                     <Grid xs={2} sm={4} md={4} key={dishIndex}>
                                         <ItemCard
                                             aos={{ style: "slide-right", delay: dishIndex * 500 }}
@@ -66,7 +87,7 @@ function Dishes() {
                         </Grid>
 
                         <Box data-aos="zoom-in" sx={{ display: "flex", justifyContent: "center", alignItems: "center" }} mt={6}>
-                            <Link href="/src/pages/menus/index.html" color={"white"} underline="none" variant="h5" sx={{ transitionDuration: "250ms", transitionTimingFunction: "linear", transitionProperty: "all", cursor: "pointer", background: textColor, userSelect: "none", p: 2, borderRadius: '5px', ":hover": { filter: "brightness(1.1)" }, ":active": { filter: "brightness(0.8)" } }} fontWeight="700"
+                            <Link href="/src/pages/menus/" color={"white"} underline="none" variant="h5" sx={{ transitionDuration: "250ms", transitionTimingFunction: "linear", transitionProperty: "all", cursor: "pointer", background: textColor, userSelect: "none", p: 2, borderRadius: '5px', ":hover": { filter: "brightness(1.1)" }, ":active": { filter: "brightness(0.8)" } }} fontWeight="700"
 
                             >Show All Items</Link>
 
