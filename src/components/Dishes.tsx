@@ -100,7 +100,7 @@ function Dishes() {
                         </Grid>
 
                         <Box data-aos="zoom-in" sx={{ display: "flex", justifyContent: "center", alignItems: "center" }} mt={6}>
-                            <Link href="/src/pages/menus/" color={"white"} underline="none" variant="h5" sx={{ transitionDuration: "250ms", transitionTimingFunction: "linear", transitionProperty: "all", cursor: "pointer", background: textColor, userSelect: "none", p: 2, borderRadius: '5px', ":hover": { filter: "brightness(1.1)" }, ":active": { filter: "brightness(0.8)" } }} fontWeight="700"
+                            <Link href="/menus" color={"white"} underline="none" variant="h5" sx={{ transitionDuration: "250ms", transitionTimingFunction: "linear", transitionProperty: "all", cursor: "pointer", background: textColor, userSelect: "none", p: 2, borderRadius: '5px', ":hover": { filter: "brightness(1.1)" }, ":active": { filter: "brightness(0.8)" } }} fontWeight="700"
 
                             >Show All Items</Link>
 

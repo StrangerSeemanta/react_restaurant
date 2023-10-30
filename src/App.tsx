@@ -1,11 +1,19 @@
 import { Fragment, useEffect } from "react"
+// Router
+
 import Navbar from "./components/Navbar"
 import Home from "./components/Home";
 import About from "./components/About";
 import Dishes from "./components/Dishes";
 import Offers from "./components/Offers"
+
+
+// AOS LIBS
 import AOS from "aos";
-import "aos/dist/aos.css";// import Offers from "./components/Offers";
+import "aos/dist/aos.css";
+
+// CSS
+import "./App.css"
 function App() {
   const pages = ["About", "Products", "Offers", "Contact"];
   // const settings = ["Profile", "Account", "Dashboard"];
@@ -17,7 +25,6 @@ function App() {
   }, [])
   return (
     <Fragment>
-
       <Navbar navItems={pages}></Navbar>
       <Home />
       <About />

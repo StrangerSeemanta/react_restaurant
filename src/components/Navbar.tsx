@@ -31,7 +31,7 @@ export default function DrawerAppBar({ navItems }: Props) {
         setMobileOpen((prevState) => !prevState);
     };
     const openLink = (url: string) => {
-        window.location.href = `#${url.toLowerCase()}`
+        window.location.href = `${url.toLowerCase()}`
     }
     const drawer = (
         <Box sx={{ textAlign: 'center' }}>
