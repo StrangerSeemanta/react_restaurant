@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Avatar, Grid } from '@mui/material';
 import Logo from "./../assets/Logo.svg"
+import { Link } from 'react-router-dom';
 
 
 interface Props {
@@ -83,7 +84,7 @@ export default function DrawerAppBar({ navItems }: Props) {
 
                                     <Grid >
                                         <Button sx={{ color: '#fff', fontWeight: "700", fontSize: "18px" }} onClick={() => { openLink(item) }}>
-                                            {item}
+                                            <Link style={{ textDecoration: "none", color: '#fff', fontWeight: "700", fontSize: "18px" }} to={"/" + item.toLowerCase()}>{item}</Link>
                                         </Button>
                                     </Grid>
                                     <Divider sx={{ background: "yellow", mx: 1, width: "2px" }} flexItem orientation='vertical' />
