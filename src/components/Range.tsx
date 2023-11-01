@@ -21,14 +21,16 @@ export default function Range({ startValue, minGap, min, max, width }: RangeProp
         newValue: number | number[],
         activeThumb: number,
     ) => {
-        if (!Array.isArray(newValue)) {
-            return;
-        }
+        if (event.target) {
+            if (!Array.isArray(newValue)) {
+                return;
+            }
 
-        if (activeThumb === 0) {
-            setRangeValue([Math.min(newValue[0], rangeValue[1] - minDistance), rangeValue[1]]);
-        } else {
-            setRangeValue([rangeValue[0], Math.max(newValue[1], rangeValue[0] + minDistance)]);
+            if (activeThumb === 0) {
+                setRangeValue([Math.min(newValue[0], rangeValue[1] - minDistance), rangeValue[1]]);
+            } else {
+                setRangeValue([rangeValue[0], Math.max(newValue[1], rangeValue[0] + minDistance)]);
+            }
         }
     };
 
