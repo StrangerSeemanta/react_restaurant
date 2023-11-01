@@ -15,7 +15,6 @@ import "aos/dist/aos.css";
 // CSS
 import "./App.css"
 function App() {
-  const pages = ["About", "Products", "Offers", "Contact"];
   // const settings = ["Profile", "Account", "Dashboard"];
   useEffect(() => {
     AOS.init({
@@ -25,7 +24,7 @@ function App() {
   }, [])
   return (
     <Fragment>
-      <Navbar navItems={pages}></Navbar>
+      <Navbar absolute NavColor="transparent"></Navbar>
       <Home />
       <About />
       <Dishes />

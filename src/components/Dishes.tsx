@@ -1,10 +1,10 @@
 import { Fragment, ReactNode, useState, useEffect } from "react"
-import { Container, Box, Typography, Link, Skeleton } from "@mui/material"
+import { Container, Box, Typography, Skeleton, Button } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2"
 import BurgerImgSrc from "./../assets/Burger_TD.svg"
 import PancakeImgSrc from "./../assets/Pancake_TD.svg"
 import ChickenImgSrc from "./../assets/ChickenFry_TD.svg"
-
+import { Link as RouterLink } from "react-router-dom"
 
 const textColor = "rgb(209, 77, 114)";
 
@@ -100,10 +100,12 @@ function Dishes() {
                         </Grid>
 
                         <Box data-aos="zoom-in" sx={{ display: "flex", justifyContent: "center", alignItems: "center" }} mt={6}>
-                            <Link href="/menus" color={"white"} underline="none" variant="h5" sx={{ transitionDuration: "250ms", transitionTimingFunction: "linear", transitionProperty: "all", cursor: "pointer", background: textColor, userSelect: "none", p: 2, borderRadius: '5px', ":hover": { filter: "brightness(1.1)" }, ":active": { filter: "brightness(0.8)" } }} fontWeight="700"
+                            <RouterLink className="routerLink" to="/products">
+                                <Button sx={{ fontWeight: "700", fontSize: "17px", color: "white", transition: "all linear 250ms", cursor: "pointer", background: textColor, p: 2, ":hover": { background: textColor, filter: "brightness(1.1)" } }}
 
-                            >Show All Items</Link>
+                                >Show All Items</Button>
 
+                            </RouterLink>
                         </Box>
                     </Box>
                 </Container>

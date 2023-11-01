@@ -161,3 +161,18 @@ div.topdishes {
     }
   }
 }
+.routerLink {
+  text-decoration: none;
+  color: inherit;
+}
+section.filterSection::-webkit-scrollbar-button {
+  border-radius: 50px;
+}
+section.filterSection::-webkit-scrollbar-track {
+  display: none;
+}
+input#searchbar {
+  &::placeholder {
+    color: $baseColor;
+  }
+}

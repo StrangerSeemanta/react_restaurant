@@ -375,4 +375,25 @@ div.topdishes:hover {
 }
 div.topdishes:hover div {
   background: #e3eeff;
+}
+
+.routerLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+section.filterSection::-webkit-scrollbar-button {
+  border-radius: 50px;
+}
+
+section.filterSection::-webkit-scrollbar-track {
+  display: none;
+}
+
+input#searchbar::-moz-placeholder {
+  color: rgb(209, 77, 114);
+}
+
+input#searchbar::placeholder {
+  color: rgb(209, 77, 114);
 }/*# sourceMappingURL=App.css.map */
