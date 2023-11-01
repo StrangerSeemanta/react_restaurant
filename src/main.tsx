@@ -21,7 +21,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
         <Route path="/products" element={<ProductsLayout />} >
           <Route index element={<AllProducts />} />
-          <Route path=':filterId' />
           <Route path='*' element={<Nopage disableNavbar disableBottomLink />} />
         </Route>
 
