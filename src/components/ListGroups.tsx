@@ -7,8 +7,11 @@ interface Props {
     Icon?: ReactNode;
     children: ReactNode | string;
 }
-
-export function ListButton({ Icon, children }: Props) {
+interface ListButtonProps {
+    Icon?: ReactNode;
+    children: ReactNode | string;
+}
+export function ListButton({ Icon, children, }: ListButtonProps) {
     return (
         <ListItemButton>
             {Icon &&
@@ -16,7 +19,7 @@ export function ListButton({ Icon, children }: Props) {
                     {Icon}
                 </ListItemIcon>
             }
-            <ListItemText>
+            <ListItemText >
                 {children}
             </ListItemText>
         </ListItemButton>
@@ -47,7 +50,7 @@ export default function ListGroup({ GroupName, Icon, children, LiHeading }: Prop
                     {isExpanded ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
                 <Collapse in={isExpanded}>
-                    <List component="div" sx={{ pl: 4, }} disablePadding>
+                    <List component="div" sx={{ pl: 2, }} disablePadding>
                         {children}
                     </List>
                 </Collapse>

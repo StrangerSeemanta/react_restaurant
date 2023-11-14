@@ -396,4 +396,14 @@ input#searchbar::-moz-placeholder {
 
 input#searchbar::placeholder {
   color: rgb(209, 77, 114);
+}
+
+div.sticky {
+  position: sticky;
+  top: 0;
+}
+
+div.catagoryLi.active {
+  border-left: 2px solid rgb(209, 77, 114);
+  padding-left: 2px;
 }/*# sourceMappingURL=App.css.map */

@@ -176,3 +176,12 @@ input#searchbar {
     color: $baseColor;
   }
 }
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+div.catagoryLi.active {
+  border-left: 2px solid rgb(209, 77, 114);
+  padding-left: 2px;
+}

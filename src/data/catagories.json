@@ -1,10 +1,10 @@
 {
-  "starter": ["PINE NUT SBRISALONA", "SED FEUGIAT", "AENEAN EU"],
-  "launch": [
-    "DUIS SED ALIQUE",
-    "SUSPENDISSE",
-    "SCELERISQUE SED",
-    "SCELERISQUE SED"
+  "country": [
+    "Bangladeshi Foods",
+    "Thai Cuisine",
+    "Indian Dishes",
+    "American Flavours"
   ],
-  "dinner": ["CRAS MAXIMUS", "TEMPOR MALESUADA", "SUSPENDISSE"]
+  "types": ["Appetizers", "Main Courses", "Deserts", "Beverages"],
+  "specials": ["Mocktail", "Coffee", "MilkShake"]
 }

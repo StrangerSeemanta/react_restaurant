@@ -35,16 +35,25 @@ function ItemCard({ productDetails, aos }: ITEMCARDPROPS) {
     return (
         <Fragment>
             <div className="topdishes">
-                <Box p={3} minHeight="80vh" width="100%" sx={{
-                    background: "#ebedf0", position: "relative", boxShadow: "5px 5px 10px #b8b9ba"
-                }} data-aos={aos.style} data-aos-easing="ease-out-cubic" data-aos-delay={aos.delay} data-aos-duration={1500}>
+                <Box
+                    p={3}
+                    minHeight="80vh"
+                    width="100%"
+                    sx={{
+                        background: "#ebedf0", position: "relative", boxShadow: "5px 5px 10px #b8b9ba"
+                    }}
+                    data-aos={aos.style}
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-delay={aos.delay}
+                    data-aos-duration={1500}>
+
                     <Box sx={{ height: "70%", width: "100%" }}>
                         {imgLoadStat ?
                             <img style={{ height: "100%", width: "100%", objectFit: "contain" }} src={productDetails.imageSrc} alt="" />
                             : <Skeleton width="100%" variant="rounded" ><div style={{ paddingTop: "100%" }}></div></Skeleton>
                         }</Box>
                     <Box sx={{ height: "30%", width: "100%", justifyContent: 'center', alignItems: "center", display: "flex", flexDirection: "column" }}>
-                        <Typography component="h2" fontSize="4rem" fontFamily="'lilita one',sans-serif" fontWeight="500" textTransform="capitalize" color="green">{productDetails.dishName}</Typography>
+                        <Typography component="h2" fontSize="3rem" fontFamily="'lilita one',sans-serif" fontWeight="500" textTransform="capitalize" color="green">{productDetails.dishName}</Typography>
                         <Typography component="h6" fontSize="1.5rem" fontFamily="'Poppins',serif" fontWeight="500" textTransform="uppercase" color="red">prices: {productDetails.offerPrice} | <span style={{ color: "black" }} className="strike">{productDetails.regularPrice}</span></Typography>
 
                     </Box>
