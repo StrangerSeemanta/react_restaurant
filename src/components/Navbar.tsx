@@ -26,9 +26,9 @@ interface Props {
 
 const drawerWidth = 240;
 
-export default function DrawerAppBar({ NavColor, NavStyle, absolute }: Props) {
-    const navItems = ["About", "Products", "Offers", "Contact"];
-
+export default function Navbar({ NavColor, NavStyle, absolute }: Props) {
+    const navItems = ["Home", "Products", "Offers", "Contact", "Account"];
+    const [activeLink, setActiveLink] = React.useState(0)
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
@@ -43,13 +43,7 @@ export default function DrawerAppBar({ NavColor, NavStyle, absolute }: Props) {
             </Typography>
             <Divider />
             <List>
-                <ListItem disablePadding>
-                    <RouterLink to={"/"} className='routerLink' style={{ width: "100%" }}>
-                        <ListItemButton sx={{ textAlign: 'center' }} >
-                            <ListItemText primary="Home" />
-                        </ListItemButton>
-                    </RouterLink>
-                </ListItem>
+
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
                         <RouterLink to={"/" + item.toLowerCase()} className='routerLink' style={{ width: "100%" }}>
@@ -92,23 +86,40 @@ export default function DrawerAppBar({ NavColor, NavStyle, absolute }: Props) {
 
                         </Typography>
 
-                        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                        <Box sx={{ position: 'relative' }}>
                             <Grid container>
-                                {navItems.map((item) => (
-                                    <React.Fragment key={item}>
-
-                                        <Grid >
-                                            <RouterLink to={"/" + item.toLowerCase()}>
-                                                <Button sx={{ color: '#fff', fontWeight: "700", fontSize: "18px", transition: "all ease-in-out 250ms", ":hover": { background: "rgba(181, 181, 255,0.2)" } }}>
-                                                    {item}
-                                                </Button>
-                                            </RouterLink>
-                                        </Grid>
-                                        {/* <Divider sx={{ background: "yellow", mx: 1, width: "2px" }} flexItem orientation='vertical' /> */}
-                                    </React.Fragment>
+                                {navItems.map((item, index) => (
+                                    <Grid item key={item}>
+                                        <RouterLink to={"/" + item.toLowerCase()}>
+                                            <Button
+                                                className={activeLink === index ? "active-btn" : ""}
+                                                onClick={() => setActiveLink(index)}
+                                                sx={{
+                                                    color: '#fff',
+                                                    fontWeight: "700",
+                                                    fontSize: "18px",
+                                                    transition: "all ease-in-out 250ms",
+                                                    ":hover": { background: "rgba(181, 181, 255,0.2)" }
+                                                }}
+                                            >
+                                                {item}
+                                            </Button>
+                                        </RouterLink>
+                                    </Grid>
                                 ))}
-                            </Grid>
+                                <div
+                                    className="button-slider"
+                                    style={{
+                                        position: 'absolute',
+                                        bottom: 0,
+                                        left: `calc(${activeLink * (100 / navItems.length)}% + 15px)`,
+                                        width: `calc(100% / ${navItems.length})`,
+                                        height: '0',
 
+                                        transition: 'all 250ms linear',
+                                    }}
+                                ></div>
+                            </Grid>
                         </Box>
                     </Toolbar>
                 </AppBar>

@@ -1,7 +1,6 @@
 import { Fragment, useEffect } from "react"
 // Router
 
-import Navbar from "./components/Navbar"
 import Home from "./components/Home";
 import About from "./components/About";
 import Dishes from "./components/Dishes";
@@ -24,7 +23,6 @@ function App() {
   }, [])
   return (
     <Fragment>
-      <Navbar absolute NavColor="transparent"></Navbar>
       <Home />
       <About />
       <Dishes />

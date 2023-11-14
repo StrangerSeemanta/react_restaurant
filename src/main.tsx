@@ -10,20 +10,24 @@ import {
 import App from './App.tsx'
 import ProductsLayout from "./pages/ProductsLayout.tsx";
 import Nopage from './components/Nopage.tsx';
+import ContactLayout from './pages/ContactLayout.tsx';
+import Navbar from './components/Navbar.tsx';
 // import AllProducts from './pages/AllProducts.tsx';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/home" element={<App />} />
+    <>
+      <Router>
+        <Navbar NavColor='rgb(209, 77, 114)' />
 
-        <Route path="/products" element={<ProductsLayout />} >
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/home" element={<App />} />
 
-        </Route>
-
-        <Route path='/*' element={<Nopage />} />
-      </Routes>
-    </Router>
+          <Route path="/products" element={<ProductsLayout />} />
+          <Route path="/contact" element={<ContactLayout />} />
+          <Route path='/*' element={<Nopage />} />
+        </Routes>
+      </Router>
+    </>
   </React.StrictMode>,
 )

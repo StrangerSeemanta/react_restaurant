@@ -10,9 +10,16 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background: rgb(254, 242, 244);
-  color: rgb(209, 77, 114);
+.button-slider {
+  position: relative;
+}
+.button-slider::before {
+  content: " ";
+  position: absolute;
+  margin-right: -15px;
+  border-width: 0 15px 10px 15px; /* Triangle dimensions */
+  border-style: solid;
+  border-color: transparent transparent white transparent;
 }
 
 .img-wrapper {

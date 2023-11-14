@@ -4,21 +4,19 @@ import { Link as RouterLink } from "react-router-dom"
 import ERRORANIME from "./../assets/Lotties/404_Lottie.json"
 import ERRAnime2 from "./../assets/Lotties/404_Anime2.json"
 import ERRAnime3 from "./../assets/Lotties/404_anime3.json"
-import Navbar from "./Navbar"
 import Lottie from 'lottie-react'
 interface Props {
     disableNavbar?: boolean;
     disableBottomLink?: boolean;
 
 }
-function Nopage({ disableNavbar, disableBottomLink }: Props) {
+function Nopage({ disableBottomLink }: Props) {
     const errorAnimations = [ERRORANIME, ERRAnime2, ERRAnime3];
     const themeColor = ["GrayText", "#0fd6a1", "#5f62f5"]
     const [ActiveErrorAnimeIndex, SetErrorAnimeIndex] = useState(0)
     return (
         <Fragment>
-            {!disableNavbar && < Navbar NavColor={themeColor[ActiveErrorAnimeIndex]} NavStyle={{ transition: "all linear 350ms" }} />
-            }            <Box height="95vh" width="100%" display="flex" p={9} justifyContent="space-between" alignItems="center" sx={{ flexDirection: { xs: "column-reverse", md: "row" } }}>
+            <Box height="95vh" width="100%" display="flex" p={9} justifyContent="space-between" alignItems="center" sx={{ flexDirection: { xs: "column-reverse", md: "row" } }}>
                 <Box display="flex" sx={{ width: { xs: "100%", md: "40%" } }} justifyContent="flex-start" gap="1rem" alignItems="flex-start" flexDirection="column">
                     <Typography sx={{ transition: "all linear 350ms", fontSize: { xs: "2.3rem", sm: "5.4rem" } }} variant='h1' fontWeight="900" color={themeColor[ActiveErrorAnimeIndex]}>
                         Oops !
@@ -34,15 +32,11 @@ function Nopage({ disableNavbar, disableBottomLink }: Props) {
                     {!disableBottomLink &&
                         <ButtonGroup sx={{ width: { xs: "100%", md: "auto" }, gap: "14px", display: "flex", flexDirection: { xs: "column", sm: "row" } }} >
                             <RouterLink to="/home" style={{ textDecoration: "none" }}>
-                                <Button variant="outlined" sx={{ borderColor: themeColor[ActiveErrorAnimeIndex], ":hover": { borderColor: themeColor[ActiveErrorAnimeIndex] }, color: themeColor[ActiveErrorAnimeIndex], transition: "all linear 350ms" }}>
+                                <Button variant="outlined" sx={{ mr: 3, borderColor: themeColor[ActiveErrorAnimeIndex], ":hover": { borderColor: themeColor[ActiveErrorAnimeIndex] }, color: themeColor[ActiveErrorAnimeIndex], transition: "all linear 350ms" }}>
                                     Go Home
                                 </Button>
                             </RouterLink>
-                            <RouterLink to="/contact" style={{ textDecoration: "none" }}>
-                                <Button variant="contained" sx={{ transition: "all linear 350ms", background: themeColor[ActiveErrorAnimeIndex], ":hover": { background: themeColor[ActiveErrorAnimeIndex], filter: "brightness(0.9)" } }} >
-                                    Contact Us
-                                </Button>
-                            </RouterLink>
+
                         </ButtonGroup>
 
                     }

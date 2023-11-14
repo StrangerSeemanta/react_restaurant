@@ -1,7 +1,6 @@
 import { Fragment, useState, useEffect, ChangeEvent, SyntheticEvent, ReactNode } from "react"
 import { Box, Button, Container, Divider, IconButton, AppBar, Avatar, Toolbar, CssBaseline, Drawer, Stack, Rating, ListItemButton, ListItemText, } from "@mui/material"
 import Typography from "@mui/material/Typography"
-import Navbar from "../components/Navbar";
 import ListGroup, { ListButton } from "../components/ListGroups";
 import StarRateIcon from '@mui/icons-material/StarRate';
 import { TuneRounded } from "@mui/icons-material";
@@ -187,7 +186,6 @@ function ProductsLayout() {
     }
     return (
         <Fragment>
-            <Navbar NavColor={baseColor} />
             <Box sx={{ width: "100%", height: "10vh", background: "red", position: "relative" }} >
                 <CssBaseline />
                 <AppBar sx={{ background: "whitesmoke", boxShadow: "none", height: "10vh", }} component="nav" position="sticky" >
