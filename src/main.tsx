@@ -12,7 +12,7 @@ import ProductsLayout from "./pages/ProductsLayout.tsx";
 import Nopage from './components/Nopage.tsx';
 import ContactLayout from './pages/ContactLayout.tsx';
 import Navbar from './components/Navbar.tsx';
-// import AllProducts from './pages/AllProducts.tsx';
+import TransitionWrapper from './TransitionWrapper.tsx';
 ReactDOM.createRoot(document.getElementById('root')!).render(
 
   <React.StrictMode>
@@ -21,12 +21,41 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Navbar NavColor='rgb(209, 77, 114)' />
 
         <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/home" element={<App />} />
+          <Route path="/"
+            element=
+            {
+              <TransitionWrapper>
+                <App />
+              </TransitionWrapper>
 
-          <Route path="/products" element={<ProductsLayout />} />
-          <Route path="/contact" element={<ContactLayout />} />
-          <Route path='/*' element={<Nopage />} />
+            } />
+          <Route path="/home"
+            element=
+            {
+              <TransitionWrapper>
+                <App />
+              </TransitionWrapper>
+            } />
+
+          <Route path="/products"
+            element=
+            {
+              <TransitionWrapper>
+                <ProductsLayout />
+              </TransitionWrapper>
+            } />
+          <Route path="/contact"
+            element={
+              <TransitionWrapper>
+                <ContactLayout />
+              </TransitionWrapper>
+            } />
+          <Route path='/*' element=
+            {
+              <TransitionWrapper>
+                <Nopage />
+              </TransitionWrapper>
+            } />
         </Routes>
       </Router>
     </>

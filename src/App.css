@@ -354,15 +354,6 @@ html {
   }
 }
 
-.overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(77, 73, 73, 0.098) !important;
-}
-
 .strike {
   text-decoration: line-through;
 }
@@ -407,4 +398,25 @@ div.sticky {
 div.catagoryLi.active {
   border-left: 2px solid rgb(209, 77, 114);
   padding-left: 2px;
+}
+
+.alert-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.alert-exit {
+  opacity: 1;
+}
+
+.alert-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }/*# sourceMappingURL=App.css.map */
