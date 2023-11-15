@@ -21,7 +21,7 @@ function SocialMediaCard({ Icon, title, color, design, href }: SocialMediaCardPr
                     {Icon}
                 </Box>
                 <Box display={"flex"} justifyContent={"center"} alignItems={"center"} height={"100%"} width={"60%"}  >
-                    <Typography textAlign={"center"} color={color} fontFamily={"'lilita one',cursive"} fontSize={"2rem"} variant="h5" component={"h5"}>{title}</Typography>
+                    <Typography textAlign={"center"} color={color} fontFamily={"'lilita one',cursive"} fontSize={{ xs: "0.8rem", sm: "2rem" }} variant="h5" component={"h5"}>{title}</Typography>
                 </Box>
                 <Box display={"flex"} justifyContent={"flex-end"} alignItems={"center"} height={"100%"} width={"20%"}>
                     <Box width={45} display={"flex"} justifyContent={"center"} alignItems={"center"} height={45} borderRadius={50} bgcolor={"whitesmoke"}>
@@ -71,7 +71,7 @@ function ContactLayout() {
                     <Stack mt={2} spacing={5} width={"100%"} alignItems={"center"}>
                         <SocialMediaCard
                             Icon={
-                                <FacebookRoundedIcon sx={{ fontSize: "5rem", color: "blue" }} />
+                                <FacebookRoundedIcon sx={{ fontSize: { xs: "2rem", sm: "5rem" }, color: "blue" }} />
                             }
                             title="Facebook Page"
                             color="blue"
