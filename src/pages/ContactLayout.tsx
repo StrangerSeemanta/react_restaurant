@@ -16,7 +16,7 @@ interface SocialMediaCardProps {
 function SocialMediaCard({ Icon, title, color, design, href }: SocialMediaCardProps) {
     return (
         <Fragment>
-            <Box style={design} p={2} display={"flex"} justifyContent={"space-between"} component={"a"} href={href} sx={{ textDecoration: "none", transition: "all ease-in-out 350ms", cursor: "pointer", ":hover": { boxShadow: `0 0 24px ${color}` }, width: "500px", height: "120px", background: "white", borderRadius: "5px", boxShadow: "5px 5px 8px rgba(0,0,0,0.2)" }}>
+            <Box style={design} p={2} display={"flex"} justifyContent={"space-between"} component={"a"} href={href} sx={{ textDecoration: "none", transition: "all ease-in-out 350ms", cursor: "pointer", ":hover": { boxShadow: `0 0 24px ${color}` }, width: { xs: "250px", sm: "500px" }, height: { xs: "80px", sm: "120px" }, background: "white", borderRadius: "5px", boxShadow: "5px 5px 8px rgba(0,0,0,0.2)" }}>
                 <Box display={"flex"} justifyContent={"center"} alignItems={"center"} height={"100%"} width={"20%"}>
                     {Icon}
                 </Box>
