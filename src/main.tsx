@@ -14,6 +14,7 @@ import ContactLayout from './pages/ContactLayout.tsx';
 import Navbar from './components/Navbar.tsx';
 // import AllProducts from './pages/AllProducts.tsx';
 ReactDOM.createRoot(document.getElementById('root')!).render(
+
   <React.StrictMode>
     <>
       <Router>

@@ -19,7 +19,7 @@ function Offers() {
             <section id="offers">
                 <Container sx={{ mt: 8 }} >
                     <Box mt={3}>
-                        <Typography data-aos="zoom-out-up" mb={4} variant="h1" fontWeight="400" textTransform="uppercase" fontFamily="'lilita one',sans-serif" textAlign="center" color="orange">Blogs</Typography>
+                        <Typography data-aos="slide-right" mb={4} variant="h1" fontWeight="400" textTransform="uppercase" fontFamily="'lilita one',sans-serif" textAlign="center" color="orange">Blogs</Typography>
 
                         {/* BLOGS */}
                         <ImageText

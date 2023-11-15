@@ -107,10 +107,10 @@ function About() {
                             </Stack>
 
                             <Stack direction={{ md: "row", xs: "column" }} useFlexGap justifyContent="space-between">
-                                <Box data-aos="fade-right" sx={{ width: { xs: "100%", md: "45%" }, height: { xs: "50vh", md: '100vh' } }}>
+                                <Box data-aos="zoom-in" sx={{ width: { xs: "100%", md: "45%" }, height: { xs: "50vh", md: '100vh' } }}>
                                     <img width="100%" height="100%" style={{ objectFit: "cover" }} src={AboutPic} alt="Picture Of Cookings" />
                                 </Box>
-                                <Box data-aos="fade-left" sx={{ width: { xs: "100%", md: "50%" }, height: "100%", mt: { xs: 4 } }}>
+                                <Box data-aos="zoom-in" sx={{ width: { xs: "100%", md: "50%" }, height: "100%", mt: { xs: 4 } }}>
                                     <Typography sx={{ textAlign: { xs: "center", md: "left" } }} fontWeight="700" textTransform="capitalize" variant="h4" color={textColor} >Who are we?</Typography>
                                     <Typography sx={{ textAlign: { xs: "center", md: "left" } }} my={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt natus blanditiis totam aperiam hic dicta excepturi laudantium minus inventore accusantium quia, velit error id, reprehenderit ad autem porro sequi ea ullam soluta iste! Iste.</Typography>
 
@@ -138,7 +138,7 @@ function About() {
                         </Box>
                         {/* Chefs */}
 
-                        <Box data-aos="zoom-out" my={5} height="60vh" display="flex" flexDirection="column" justifyContent="center">
+                        <Box data-aos="zoom-in" my={5} height="60vh" display="flex" flexDirection="column" justifyContent="center">
 
                             <Box height={{ xs: "20vh", sm: "50vh" }} sx={{ overflow: "hidden" }}>
                                 {BannerLoading ?

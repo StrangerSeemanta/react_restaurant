@@ -1,16 +1,11 @@
 import { Fragment, useState } from 'react'
-import { Box, Typography, Button, ButtonGroup } from "@mui/material"
-import { Link as RouterLink } from "react-router-dom"
+import { Box, Typography, } from "@mui/material"
 import ERRORANIME from "./../assets/Lotties/404_Lottie.json"
 import ERRAnime2 from "./../assets/Lotties/404_Anime2.json"
 import ERRAnime3 from "./../assets/Lotties/404_anime3.json"
 import Lottie from 'lottie-react'
-interface Props {
-    disableNavbar?: boolean;
-    disableBottomLink?: boolean;
 
-}
-function Nopage({ disableBottomLink }: Props) {
+function Nopage() {
     const errorAnimations = [ERRORANIME, ERRAnime2, ERRAnime3];
     const themeColor = ["GrayText", "#0fd6a1", "#5f62f5"]
     const [ActiveErrorAnimeIndex, SetErrorAnimeIndex] = useState(0)
@@ -29,17 +24,7 @@ function Nopage({ disableBottomLink }: Props) {
                     <Typography textTransform="uppercase" variant='body1' sx={{ fontStyle: "italic" }} textAlign="left" >
                         Error: 404. Page Not Found.
                     </Typography>
-                    {!disableBottomLink &&
-                        <ButtonGroup sx={{ width: { xs: "100%", md: "auto" }, gap: "14px", display: "flex", flexDirection: { xs: "column", sm: "row" } }} >
-                            <RouterLink to="/home" style={{ textDecoration: "none" }}>
-                                <Button variant="outlined" sx={{ mr: 3, borderColor: themeColor[ActiveErrorAnimeIndex], ":hover": { borderColor: themeColor[ActiveErrorAnimeIndex] }, color: themeColor[ActiveErrorAnimeIndex], transition: "all linear 350ms" }}>
-                                    Go Home
-                                </Button>
-                            </RouterLink>
 
-                        </ButtonGroup>
-
-                    }
 
 
                 </Box>

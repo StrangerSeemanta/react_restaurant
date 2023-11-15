@@ -354,12 +354,6 @@ html {
   }
 }
 
-.IntroHead {
-  color: transparent !important;
-  -webkit-background-clip: text !important;
-          background-clip: text !important;
-}
-
 .overlay {
   width: 100%;
   height: 100%;
