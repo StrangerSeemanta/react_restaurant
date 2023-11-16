@@ -1,10 +1,11 @@
 import { Fragment, useRef, } from "react"
-import { Box, Container, Divider, Stack, TextField, Typography, outlinedInputClasses } from "@mui/material"
+import { Box, Button, Container, Divider, Stack, TextField, Typography, outlinedInputClasses } from "@mui/material"
 import Lottie, { LottieRefCurrentProps } from "lottie-react"
 import ContactAnime from "./../assets/Lotties/contact_anime.json"
 import SocialMedia from "../components/SocialMedia"
 import { ApartmentOutlined, Call, Send, TextsmsOutlined } from "@mui/icons-material"
 import { createTheme, ThemeProvider, Theme, useTheme } from '@mui/material/styles';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 const customTheme = (outerTheme: Theme) =>
     createTheme({
@@ -201,7 +202,14 @@ function ContactLayout() {
                                             multiline
                                             rows={4}
                                         />
-
+                                        <Button
+                                            variant="contained"
+                                            disableElevation
+                                            sx={{ background: "#34b2d9", ":hover": { background: "#3ac2ed" }, height: "50px", fontSize: "18px" }}
+                                            endIcon={<Send />}
+                                        >
+                                            Send
+                                        </Button>
                                     </ThemeProvider>
                                 </Stack>
                             </Stack>
