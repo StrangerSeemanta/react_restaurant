@@ -5,7 +5,6 @@ import ContactAnime from "./../assets/Lotties/contact_anime.json"
 import SocialMedia from "../components/SocialMedia"
 import { ApartmentOutlined, Call, Send, TextsmsOutlined } from "@mui/icons-material"
 import { createTheme, ThemeProvider, Theme, useTheme } from '@mui/material/styles';
-import LoadingButton from '@mui/lab/LoadingButton';
 
 const customTheme = (outerTheme: Theme) =>
     createTheme({
