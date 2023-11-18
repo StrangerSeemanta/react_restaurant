@@ -40,9 +40,9 @@ export default function Navbar({ NavColor, NavStyle, absolute }: Props) {
     React.useEffect(() => {
         const currentPath = location.pathname.toLowerCase();
         const activeIndex = navItems.findIndex(item => currentPath.includes(item.toLowerCase()));
-        if (activeIndex !== -1) {
-            setActiveLink(activeIndex);
-        }
+
+        setActiveLink(activeIndex);
+
     }, [location.pathname, navItems]);
 
     const handleDrawerToggle = () => {
@@ -116,7 +116,7 @@ export default function Navbar({ NavColor, NavStyle, absolute }: Props) {
                                         </Button>
                                     </Grid>
                                 ))}
-                                <div
+                                {activeLink > -1 && <div
                                     className="button-slider"
                                     style={{
                                         position: 'absolute',
@@ -126,7 +126,7 @@ export default function Navbar({ NavColor, NavStyle, absolute }: Props) {
                                         height: '0',
                                         transition: 'all 250ms linear',
                                     }}
-                                ></div>
+                                ></div>}
                             </Grid>
                         </Box>
                     </Toolbar >

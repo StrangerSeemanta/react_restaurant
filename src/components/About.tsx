@@ -112,7 +112,9 @@ function About() {
                                 </Box>
                                 <Box data-aos="zoom-in" sx={{ width: { xs: "100%", md: "50%" }, height: "100%", mt: { xs: 4 } }}>
                                     <Typography sx={{ textAlign: { xs: "center", md: "left" } }} fontWeight="700" textTransform="capitalize" variant="h4" color={textColor} >Who are we?</Typography>
-                                    <Typography sx={{ textAlign: { xs: "center", md: "left" } }} my={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt natus blanditiis totam aperiam hic dicta excepturi laudantium minus inventore accusantium quia, velit error id, reprehenderit ad autem porro sequi ea ullam soluta iste! Iste.</Typography>
+                                    <Typography sx={{ textAlign: { xs: "center", md: "left" } }} my={3}>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt natus blanditiis totam aperiam hic dicta excepturi laudantium minus inventore accusantium quia, velit error id, reprehenderit ad autem porro sequi ea ullam soluta iste! Iste.
+                                    </Typography>
 
 
                                     <Box >
