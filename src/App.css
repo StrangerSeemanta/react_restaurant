@@ -423,4 +423,64 @@ div.catagoryLi.active {
 
 .chatbox::-webkit-scrollbar {
   display: none;
+}
+
+.chat_incoming_anime {
+  animation: chat_incoming_anime 250ms linear;
+  transform-origin: left top;
+}
+
+.chat_outgoing_anime {
+  animation: chat_outgoing_anime 200ms linear;
+  transform-origin: right bottom;
+}
+
+@keyframes chat_incoming_anime {
+  from {
+    transform: translateX(-10px) scale(0.3);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateX(0px) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes chat_outgoing_anime {
+  from {
+    transform: translateX(10px) scale(0.3);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateX(0px) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes jumpAnimation {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+.typingMsg {
+  display: inline-block;
+}
+.typingMsg .dot {
+  width: 5px;
+  height: 5px;
+  background-color: #d14d72;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 2px;
+  animation: jumpAnimation 1s infinite;
+}
+.typingMsg .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typingMsg .dot:nth-child(3) {
+  animation-delay: 0.4s;
 }/*# sourceMappingURL=App.css.map */
