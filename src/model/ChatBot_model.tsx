@@ -1,32 +1,27 @@
-const singleInput = [
-    {
-        "question": "How to create an account",
-        "answer": "Follow these steps"
-    }
-];
+import MainPanel from "./templates/MainPanel";
+import { commonInputData, fixedInputData } from "./BotData_model";
 
-const rawInput = [
-    {
-        "input": "How are you ?",
-        "output": (<>
-            <span>I am fine. </span><br />
-            <b>How can I help?</b>
-            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, minus.</div>
-        </>)
-    }
-];
-
-async function ChatBot_model(message: string) {
+async function ChatBot_model(message: string, handleSuggestBtn?: (suggestion: string) => void) {
     const words = message.toLowerCase().split(/\s+/);
 
     // Check if there are at least two words in the user input
-    if (words.length < 3) {
-        return "Please Make a clear and complete sentence";
+    if ((!message.toLowerCase().includes("hi") && !message.toLowerCase().includes("hello"))) {
+        if (!message.toLowerCase().includes("thank") && (words.length < 3)) {
+
+            return <MainPanel
+                onSuggestBtnClick={handleSuggestBtn}
+                start={
+                    <span style={{ color: "red", }}>Please Make a clear and complete sentence, and write at least 3 words</span>
+                }
+                suggestButtons />;
+
+        }
     }
 
+
     // Check in singleInput
-    const singleMatch = singleInput.find(faq =>
-        words.every(word => faq.question.toLowerCase().includes(word))
+    const singleMatch = commonInputData.find(faq =>
+        words.some(word => faq.question.toLowerCase().includes(word))
     );
 
     if (singleMatch) {
@@ -34,7 +29,7 @@ async function ChatBot_model(message: string) {
     }
 
     // Check in rawInput
-    const rawMatch = rawInput.find(input =>
+    const rawMatch = fixedInputData.find(input =>
         words.every(word => input.input.toLowerCase().includes(word))
     );
 
@@ -43,7 +38,7 @@ async function ChatBot_model(message: string) {
     }
 
     // If no match found
-    return "Sorry! Invalid Input";
+    return <MainPanel start={"I can't recognize your message."} suggestButtons onSuggestBtnClick={handleSuggestBtn} />;
 }
 
 export default ChatBot_model;

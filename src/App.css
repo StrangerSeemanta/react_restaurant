@@ -483,4 +483,9 @@ div.catagoryLi.active {
 }
 .typingMsg .dot:nth-child(3) {
   animation-delay: 0.4s;
+}
+
+.chat_reply_list {
+  padding: 0px 20px;
+  width: 100%;
 }/*# sourceMappingURL=App.css.map */
