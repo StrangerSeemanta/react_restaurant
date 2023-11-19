@@ -20,7 +20,7 @@ async function ChatBot_model(message: string) {
     const words = message.toLowerCase().split(/\s+/);
 
     // Check if there are at least two words in the user input
-    if (words.length < 2) {
+    if (words.length < 3) {
         return "Please Make a clear and complete sentence";
     }
 
