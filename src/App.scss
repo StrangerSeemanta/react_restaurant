@@ -275,3 +275,31 @@ div.catagoryLi.active {
   padding: 0px 20px;
   width: 100%;
 }
+.slide-in {
+  animation: slideIn 250ms linear !important;
+  transition: all linear 250ms;
+  @keyframes slideIn {
+    from {
+      transform: translateX(-400px);
+      opacity: 0.2;
+    }
+    to {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
+}
+.slide-up {
+  animation: slideUp 250ms linear !important;
+  transition: all linear 250ms;
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+      opacity: 0.2;
+    }
+    to {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+}

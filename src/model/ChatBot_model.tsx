@@ -29,8 +29,8 @@ async function ChatBot_model(message: string, handleSuggestBtn?: (suggestion: st
     }
 
     // Check in rawInput
-    const rawMatch = fixedInputData.find(input =>
-        words.every(word => input.input.toLowerCase().includes(word))
+    const rawMatch = fixedInputData.find(fixData =>
+        words.every(word => fixData.input.toLowerCase().includes(word))
     );
 
     if (rawMatch) {

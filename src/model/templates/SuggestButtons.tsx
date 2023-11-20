@@ -3,7 +3,7 @@ import MuiButton, { ButtonProps } from '@mui/material/Button';
 import { Fragment, forwardRef, useState } from "react"
 const SuggestBtn = forwardRef<HTMLButtonElement, ButtonProps>(
     function SuggestBtn(props, ref) {
-        return <MuiButton variant="outlined" sx={{ fontWeight: 600, color: "#d14d72", borderColor: "#d14d72", borderRadius: "50px", transition: "all linear 350ms", ":hover": { background: "#d14d72", color: "white", borderColor: "#d14d72", } }} ref={ref} {...props} />
+        return <MuiButton variant="outlined" sx={{ fontWeight: 600, color: "green", borderColor: "green", borderRadius: "50px", transition: "all linear 350ms", ":hover": { background: "green", color: "white", borderColor: "green", } }} ref={ref} {...props} />
     }
 )
 interface SuggestBtnProps {

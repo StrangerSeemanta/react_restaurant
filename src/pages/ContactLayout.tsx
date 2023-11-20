@@ -168,7 +168,7 @@ function ContactLayout() {
             {/* Contact Home */}
             <Box height="95vh" width="100%" display="flex" px={4} py={9} justifyContent="space-between" alignItems="center" sx={{ flexDirection: { xs: "column-reverse", md: "row" } }}>
                 <Box display="flex" sx={{ width: { xs: "100%", md: "40%" } }} justifyContent="flex-start" gap="1rem" alignItems="flex-start" flexDirection="column">
-                    <Typography color={"#D14D72"} sx={{ transition: "all linear 350ms", fontSize: { xs: "1.3rem", sm: "4.2rem" } }} variant='h1' fontWeight="900" >
+                    <Typography color={"#D14D72"} sx={{ transition: "all linear 350ms", fontSize: { xs: "2.3rem", sm: "4.2rem" } }} variant='h1' fontWeight="900" >
                         Let's <span style={{ color: "orange" }}>Connect</span> Together...
                     </Typography>
                     <Typography sx={{ transition: "all linear 350ms", fontSize: { xs: "1rem", sm: "1rem" } }} textTransform="capitalize" variant='h5' >

@@ -10,6 +10,8 @@ import ContactLayout from './pages/ContactLayout.tsx';
 import Navbar from './components/Navbar.tsx';
 import TransitionWrapper from './TransitionWrapper.tsx';
 import ChatPage from './pages/ChatPage.tsx';
+import AccountPage, { SignInPage } from './pages/AccountPage.tsx';
+import SignUpPage from './pages/SignUpPage.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Router>
@@ -21,6 +23,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/home" element={<TransitionWrapper><App /></TransitionWrapper>} />
           <Route path="/products" element={<TransitionWrapper><ProductsLayout /></TransitionWrapper>} />
           <Route path="/contact" element={<TransitionWrapper><ContactLayout /></TransitionWrapper>} />
+          <Route path="/account" element={<TransitionWrapper><AccountPage /></TransitionWrapper>} >
+            <Route index element={<TransitionWrapper><SignInPage /></TransitionWrapper>} />
+            <Route path='signin' element={<TransitionWrapper><SignInPage /></TransitionWrapper>} />
+            <Route path="signup" element={<TransitionWrapper><SignUpPage /></TransitionWrapper>} />
+          </Route>
+
           <Route path="/chat" element={<TransitionWrapper><ChatPage /></TransitionWrapper>} />
 
           <Route path="/*" element={<TransitionWrapper><Nopage /></TransitionWrapper>} />
