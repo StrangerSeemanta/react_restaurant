@@ -63,7 +63,7 @@ export const fixedInputData = [
     {
         "input": "What Can You Do?",
         "output": (
-            <MainPanel start={"Here is my details"} end={<b style={{ fontSize: "12px", color: "orangered" }}>Developed and Designed by <a href="mailto:ssworkmail22@gmail.com">Shuvo Sarker</a></b>} />
+            <MainPanel start={"Here is my details"} />
         )
     },
     {
