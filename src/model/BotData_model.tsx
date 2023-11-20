@@ -3,7 +3,7 @@ import MainPanel from "./templates/MainPanel";
 // Need to match a part of it
 export const commonInputData = [
     {
-        "question": "How to create an account",
+        "question": "create an account",
         "answer": (<>
             <p><strong>Follow these steps</strong></p>
             <p>
