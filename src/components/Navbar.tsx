@@ -27,7 +27,7 @@ interface Props {
 const drawerWidth = 240;
 
 export default function Navbar({ NavColor, NavStyle, absolute }: Props) {
-    const navItems = React.useMemo(() => ["Home", "Products", "Offers", "Contact", "Account"], []);
+    const navItems = React.useMemo(() => ["Home", "Products", "Contact", "Account"], []);
     const [activeLink, setActiveLink] = React.useState(0)
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const navigate = useNavigate();
