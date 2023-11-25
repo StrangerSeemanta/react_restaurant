@@ -1,4 +1,14 @@
 import ChickenFryPic from "./../assets/ChickenFry_TD.svg"
+import Burger from "./../assets/Burger_TD.svg"
+import Aglio from "./../assets/aglio_olio.svg"
+import Pudding from "./../assets/pudding.svg"
+import HBiriyani from "./../assets/hyderabiriyani.svg"
+import Kacchi from "./../assets/kacchyi.svg"
+import Grill from "./../assets/grilled.svg"
+import Mutton from "./../assets/mutton.svg"
+import ThaiPack from "./../assets/thai_pack.svg"
+import IndianPack from "./../assets/indian_pack.svg"
+
 export const Data =
     [
         {
@@ -14,7 +24,7 @@ export const Data =
         },
         {
             "title": "Aglio E Olio",
-            "img": ChickenFryPic,
+            "img": Aglio,
             "price": 12,
             "originalPrice": 17,
             "ratings": 4,
@@ -25,7 +35,7 @@ export const Data =
         },
         {
             "title": "Burger",
-            "img": ChickenFryPic,
+            "img": Burger,
             "price": 8,
             "originalPrice": 12,
             "ratings": 3,
@@ -36,7 +46,7 @@ export const Data =
         },
         {
             "title": "Indian Pudding",
-            "img": ChickenFryPic,
+            "img": Pudding,
             "price": 22,
             "originalPrice": 38,
             "ratings": 2,
@@ -47,7 +57,7 @@ export const Data =
         },
         {
             "title": "Hyderabadi Biriyani",
-            "img": ChickenFryPic,
+            "img": HBiriyani,
             "price": 48,
             "originalPrice": 55,
             "ratings": 3,
@@ -57,7 +67,7 @@ export const Data =
             "special": true
         }, {
             "title": "Kacchi Biriyani",
-            "img": ChickenFryPic,
+            "img": Kacchi,
             "price": 57,
             "originalPrice": 72,
             "ratings": 5,
@@ -68,7 +78,7 @@ export const Data =
         },
         {
             "title": "Grilled Chicken ",
-            "img": ChickenFryPic,
+            "img": Grill,
             "price": 18,
             "originalPrice": 22,
             "ratings": 6,
@@ -79,7 +89,7 @@ export const Data =
         },
         {
             "title": "Cheesed Mutton ",
-            "img": ChickenFryPic,
+            "img": Mutton,
             "price": 27,
             "originalPrice": 32,
             "ratings": 2,
@@ -91,7 +101,7 @@ export const Data =
         },
         {
             "title": "Thai Package",
-            "img": ChickenFryPic,
+            "img": ThaiPack,
             "price": 98,
             "originalPrice": 112,
             "ratings": 4,
@@ -102,7 +112,7 @@ export const Data =
         },
         {
             "title": "Indian Special Thali",
-            "img": ChickenFryPic,
+            "img": IndianPack,
             "price": 157,
             "originalPrice": 212,
             "ratings": 5,
