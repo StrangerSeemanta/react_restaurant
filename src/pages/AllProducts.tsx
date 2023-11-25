@@ -73,7 +73,7 @@ function ItemCard({ productDetails, addWishlist, removeWishlist }: ITEMCARDPROPS
                     sx={{ ":hover": { background: "rgba(0,0,0,0.1)" }, cursor: "pointer" }}
                 >
                     <Box display={"flex"} justifyContent={"space-between"} alignItems={productDetails.remwishbtn ? "flex-start" : "center"} width={"100%"} height={"110px"} sx={{ marginBottom: "5%" }}>
-                        <img style={{ height: "100%", objectFit: "contain" }} src={productDetails.img} alt={productDetails.title + " image"} />
+                        <img style={{ height: "100%", objectFit: "contain", filter: "drop-shadow(3px 9px 5px rgba(0,0,0,0.25))" }} src={productDetails.img} alt={productDetails.title + " image"} />
                         <Typography component={"h1"} fontWeight={600} color={"orange"} fontSize={"1.5rem"}>
                             {productDetails.remwishbtn
                                 ?

@@ -1,5 +1,5 @@
 import { Fragment, useState, useEffect, ChangeEvent, SyntheticEvent, ReactNode } from "react"
-import { Box, Button, Container, Divider, IconButton, AppBar, Avatar, Toolbar, CssBaseline, Drawer, Stack, Rating, ListItemButton, ListItemText, } from "@mui/material"
+import { Box, Button, Container, Divider, IconButton, AppBar, Avatar, Toolbar, CssBaseline, Drawer, Stack, Rating, ListItemButton, ListItemText, LinearProgress, } from "@mui/material"
 import Typography from "@mui/material/Typography"
 import ListGroup, { ListButton } from "../components/ListGroups";
 import StarRateIcon from '@mui/icons-material/StarRate';
@@ -80,6 +80,17 @@ function SidePanel({ onRatingChange, onWishlistShow, onPriceRangeChange, priceRa
 
 
 function ProductsLayout() {
+    // Page Loader State
+    const [pageloaded, setPageLoaded] = useState(false);
+    useEffect(() => {
+        fetch(window.location.href)
+            .then(r => {
+                if (r.ok && r.status === 200) {
+                    setPageLoaded(true)
+                }
+            })
+    }, [])
+
     const [filteredData, updateFilteredData] = useState(Data)
     const [productData, updateProductData] = useState(filteredData)
 
@@ -186,53 +197,115 @@ function ProductsLayout() {
     }
     return (
         <Fragment>
-            <Box sx={{ width: "100%", height: "10vh", background: "red", position: "relative" }} >
-                <CssBaseline />
-                <AppBar sx={{ background: "whitesmoke", boxShadow: "none", height: "10vh", }} component="nav" position="sticky" >
-                    <Toolbar sx={{ display: "flex", justifyContent: { xs: "space-between", md: "center" } }} >
-                        <IconButton sx={{ display: { xs: "block", md: "none" }, }}
-                            onClick={handleDrawer}>
-                            <TuneRounded sx={{ color: baseColor }} />
-                        </IconButton>
-
-                        <SearchBar
-                            style={{ primaryColor: baseColor, iconColor: baseColor }}
-                            startTypingSearch={startTypingSearch}
-                            value={searchValue}
-                            onChange={handleSearch}
-                            onClose={() => { setSearchVal("") }} />
-                        <Typography ml={3} color={baseColor}>{productData.length} Results Found</Typography>
-                    </Toolbar>
-
-                </AppBar>
-                {/* For Mobile */}
-                <Box component="nav">
-                    <Drawer
-                        variant="temporary"
-                        open={openMenu}
-                        onClose={handleDrawer}
-
-                    >
-                        <Box width="250px" bgcolor="transparent">
-                            <Box height="10vh" bgcolor={baseColor}>
-                                <Toolbar>
-                                    <Avatar component="div" src={Logo} sx={{ mr: 1.5, width: "50px", height: "50px" }} />
-                                    <Typography color="white" component="div" variant="h5" fontWeight="700">
-                                        Hot Bite
-                                    </Typography>
-                                </Toolbar>
-                            </Box>
-                            <Box height="10vh" bgcolor="whitesmoke">
-                                <Toolbar>
-                                    <IconButton sx={{ mr: 1.5 }} onClick={handleDrawer}>
+            {
+                pageloaded ?
+                    <Box component={"section"} id="allproducts"  >
+                        <Box sx={{ width: "100%", height: "10vh", background: "red", position: "relative" }} >
+                            <CssBaseline />
+                            <AppBar sx={{ background: "whitesmoke", boxShadow: "none", height: "10vh", }} component="nav" position="sticky" >
+                                <Toolbar sx={{ display: "flex", justifyContent: { xs: "space-between", md: "center" } }} >
+                                    <IconButton sx={{ display: { xs: "block", md: "none" }, }}
+                                        onClick={handleDrawer}>
                                         <TuneRounded sx={{ color: baseColor }} />
                                     </IconButton>
-                                    <Typography color={baseColor} component="div" variant="h6" fontWeight="700">
+
+                                    <SearchBar
+                                        style={{ primaryColor: baseColor, iconColor: baseColor }}
+                                        startTypingSearch={startTypingSearch}
+                                        value={searchValue}
+                                        onChange={handleSearch}
+                                        onClose={() => { setSearchVal("") }} />
+                                    <Typography ml={3} color={baseColor}>{productData.length} Results Found</Typography>
+                                </Toolbar>
+
+                            </AppBar>
+                            {/* For Mobile */}
+                            <Box component="nav">
+                                <Drawer
+                                    variant="temporary"
+                                    open={openMenu}
+                                    onClose={handleDrawer}
+
+                                >
+                                    <Box width="250px" bgcolor="transparent">
+                                        <Box height="10vh" bgcolor={baseColor}>
+                                            <Toolbar>
+                                                <Avatar component="div" src={Logo} sx={{ mr: 1.5, width: "50px", height: "50px" }} />
+                                                <Typography color="white" component="div" variant="h5" fontWeight="700">
+                                                    Hot Bite
+                                                </Typography>
+                                            </Toolbar>
+                                        </Box>
+                                        <Box height="10vh" bgcolor="whitesmoke">
+                                            <Toolbar>
+                                                <IconButton sx={{ mr: 1.5 }} onClick={handleDrawer}>
+                                                    <TuneRounded sx={{ color: baseColor }} />
+                                                </IconButton>
+                                                <Typography color={baseColor} component="div" variant="h6" fontWeight="700">
+                                                    Filter Your Food
+                                                </Typography>
+                                            </Toolbar>
+                                        </Box>
+                                        <Box px={2}>
+                                            <SidePanel priceRangeValue={rangeValue} onReset={handleReset} RatingValue={ratingValue} onRatingChange={handleRatingSort} onPriceRangeChange={handlePriceChange} maximumPrice={maxPrice}
+                                                catagories={
+                                                    <>
+                                                        <ListGroup GroupName="By Country">
+                                                            {CatagoriesJSON.country.map((country, index) => (
+                                                                <ListButton key={index}>{
+                                                                    <Box component={"li"} onClick={() => {
+                                                                        const filteredByCountry = Data.filter((product) => {
+                                                                            return product.country.toLowerCase().includes(country.toLowerCase())
+                                                                        })
+                                                                        updateProductData(filteredByCountry)
+                                                                    }}>{country}</Box>
+                                                                }</ListButton>
+                                                            ))}
+                                                        </ListGroup>
+                                                        <ListGroup GroupName="Food Types">
+                                                            {CatagoriesJSON.types.map((type, index) => (
+                                                                <ListButton key={index}>
+                                                                    <Box component={"li"} onClick={() => {
+                                                                        const filteredByType = Data.filter((product) => {
+                                                                            return product.catagory.toLowerCase().includes(type.toLowerCase())
+                                                                        })
+                                                                        updateProductData(filteredByType)
+                                                                    }}>{type}</Box>
+                                                                </ListButton>
+                                                            ))}
+                                                        </ListGroup>
+                                                        <ListGroup GroupName="Special Items">
+                                                            {CatagoriesJSON.specials.map((special, index) => (
+                                                                <ListButton key={index}>
+                                                                    <Box component={"li"} onClick={() => {
+                                                                        const filteredBySpecial = Data.filter((product) => {
+                                                                            return product.catagory.toLowerCase().includes(special.toLowerCase())
+                                                                        })
+                                                                        updateProductData(filteredBySpecial)
+                                                                    }}>{special}</Box>
+                                                                </ListButton>
+                                                            ))}
+                                                        </ListGroup>
+                                                    </>
+                                                }
+                                                onWishlistShow={handleWishLists}
+                                            />
+                                        </Box>
+                                    </Box>
+                                </Drawer>
+                            </Box>
+                        </Box>
+
+                        <Box sx={{ width: "100%", height: "90vh", background: "transparent", display: "flex" }} >
+                            {/* Left Column */}
+                            <Box component="section" className="filterSection" sx={{ display: { xs: "none", md: "block" }, p: 2, width: "300px", height: "90vh", background: "transparent", borderRight: "2px solid whitesmoke", overflowY: "scroll" }} >
+                                <Box>
+                                    <Typography textAlign="center" variant="h6" color={baseColor} fontWeight="600">
                                         Filter Your Food
                                     </Typography>
-                                </Toolbar>
-                            </Box>
-                            <Box px={2}>
+                                    <Divider />
+                                </Box>
+
                                 <SidePanel priceRangeValue={rangeValue} onReset={handleReset} RatingValue={ratingValue} onRatingChange={handleRatingSort} onPriceRangeChange={handlePriceChange} maximumPrice={maxPrice}
                                     catagories={
                                         <>
@@ -275,98 +348,48 @@ function ProductsLayout() {
                                         </>
                                     }
                                     onWishlistShow={handleWishLists}
-                                />
+                                />  </Box>
+                            {/* Right Column */}
+                            <Box sx={{ px: 1, width: "100%", height: "100%", background: "transparent" }}>
+                                <Container>
+                                    {
+                                        productData.length !== 0 ?
+                                            <AllProducts dataset={productData}
+                                                onAddWishlist={(e) => {
+
+                                                    const title = e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector(".card-title")?.innerHTML
+                                                    // Check if the title is not already in the wishlists
+                                                    if (title && !wishlists.includes(title)) {
+                                                        // Use the updateWishlists function to add the new title to the wishlists
+                                                        updateWishlists((prevWishlists) => [...prevWishlists, title]);
+                                                    }
+                                                }}
+                                                onRemoveWishlist={(e) => {
+                                                    const title = e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector(".card-title")?.innerHTML
+                                                    // Check if the title is not already in the wishlists
+                                                    if (title && wishlists.includes(title)) {
+                                                        // Use the updateWishlists function to remove the title from the wishlists
+                                                        updateWishlists((prevWishlists) => prevWishlists.filter((item) => item !== title));
+                                                    }
+                                                }}
+                                            /> :
+                                            <NoResult />
+                                    }                    </Container>
                             </Box>
                         </Box>
-                    </Drawer>
-                </Box>
-            </Box>
 
-            <Box sx={{ width: "100%", height: "90vh", background: "transparent", display: "flex" }} >
-                {/* Left Column */}
-                <Box component="section" className="filterSection" sx={{ display: { xs: "none", md: "block" }, p: 2, width: "300px", height: "90vh", background: "transparent", borderRight: "2px solid whitesmoke", overflowY: "scroll" }} >
-                    <Box>
-                        <Typography textAlign="center" variant="h6" color={baseColor} fontWeight="600">
-                            Filter Your Food
-                        </Typography>
-                        <Divider />
                     </Box>
+                    :
+                    <Box position={"fixed"} display={"flex"} justifyContent={"center"} alignItems={"center"} width={"100%"} height={"100%"} top={0} left={0} zIndex={999999} bgcolor={"white"}>
+                        <Box width={{ xs: "200px", sm: "400px" }}>
+                            <Typography fontWeight={800} color={"#ff6c0a"} component={"p"} fontSize={{ xs: "15px", sm: "23px" }} mb={3} textAlign={"center"}>
+                                Foods are preparing ...
+                            </Typography>
+                            <LinearProgress color="warning" />
 
-                    <SidePanel priceRangeValue={rangeValue} onReset={handleReset} RatingValue={ratingValue} onRatingChange={handleRatingSort} onPriceRangeChange={handlePriceChange} maximumPrice={maxPrice}
-                        catagories={
-                            <>
-                                <ListGroup GroupName="By Country">
-                                    {CatagoriesJSON.country.map((country, index) => (
-                                        <ListButton key={index}>{
-                                            <Box component={"li"} onClick={() => {
-                                                const filteredByCountry = Data.filter((product) => {
-                                                    return product.country.toLowerCase().includes(country.toLowerCase())
-                                                })
-                                                updateProductData(filteredByCountry)
-                                            }}>{country}</Box>
-                                        }</ListButton>
-                                    ))}
-                                </ListGroup>
-                                <ListGroup GroupName="Food Types">
-                                    {CatagoriesJSON.types.map((type, index) => (
-                                        <ListButton key={index}>
-                                            <Box component={"li"} onClick={() => {
-                                                const filteredByType = Data.filter((product) => {
-                                                    return product.catagory.toLowerCase().includes(type.toLowerCase())
-                                                })
-                                                updateProductData(filteredByType)
-                                            }}>{type}</Box>
-                                        </ListButton>
-                                    ))}
-                                </ListGroup>
-                                <ListGroup GroupName="Special Items">
-                                    {CatagoriesJSON.specials.map((special, index) => (
-                                        <ListButton key={index}>
-                                            <Box component={"li"} onClick={() => {
-                                                const filteredBySpecial = Data.filter((product) => {
-                                                    return product.catagory.toLowerCase().includes(special.toLowerCase())
-                                                })
-                                                updateProductData(filteredBySpecial)
-                                            }}>{special}</Box>
-                                        </ListButton>
-                                    ))}
-                                </ListGroup>
-                            </>
-                        }
-                        onWishlistShow={handleWishLists}
-                    />  </Box>
-                {/* Right Column */}
-                <Box sx={{ px: 1, width: "100%", height: "100%", background: "transparent" }}>
-                    <Container>
-                        {
-                            productData.length !== 0 ?
-                                <AllProducts dataset={productData}
-                                    onAddWishlist={(e) => {
-
-                                        const title = e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector(".card-title")?.innerHTML
-                                        // Check if the title is not already in the wishlists
-                                        if (title && !wishlists.includes(title)) {
-                                            // Use the updateWishlists function to add the new title to the wishlists
-                                            updateWishlists((prevWishlists) => [...prevWishlists, title]);
-                                        }
-                                    }}
-                                    onRemoveWishlist={(e) => {
-                                        const title = e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector(".card-title")?.innerHTML
-                                        // Check if the title is not already in the wishlists
-                                        if (title && wishlists.includes(title)) {
-                                            // Use the updateWishlists function to remove the title from the wishlists
-                                            updateWishlists((prevWishlists) => prevWishlists.filter((item) => item !== title));
-                                        }
-                                    }}
-                                /> :
-                                <NoResult />
-                        }                    </Container>
-                </Box>
-            </Box>
-
-            {/* <Typography textAlign="center" variant="h2" color={baseColor} fontWeight="700" fontFamily="'Poppins',sans-serif">
-                        Menu Lists
-                    </Typography> */}
+                        </Box>
+                    </Box>
+            }
         </Fragment>
     )
 }

@@ -8,6 +8,9 @@ import Grill from "./../assets/grilled.svg"
 import Mutton from "./../assets/mutton.svg"
 import ThaiPack from "./../assets/thai_pack.svg"
 import IndianPack from "./../assets/indian_pack.svg"
+import BdPack from "./../assets/bd_pack.svg"
+import BlueOcean from "./../assets/blue_ocean.svg"
+import virginMojito from "./../assets/virgin_mojito.svg"
 
 export const Data =
     [
@@ -45,7 +48,7 @@ export const Data =
             "special": true
         },
         {
-            "title": "Indian Pudding",
+            "title": "Indian Kheer",
             "img": Pudding,
             "price": 22,
             "originalPrice": 38,
@@ -123,7 +126,7 @@ export const Data =
         },
         {
             "title": "Bangladeshi Special Package",
-            "img": ChickenFryPic,
+            "img": BdPack,
             "price": 300,
             "originalPrice": 450,
             "ratings": 5,
@@ -135,7 +138,7 @@ export const Data =
         },
         {
             "title": "Blue Ocean",
-            "img": ChickenFryPic,
+            "img": BlueOcean,
             "price": 7,
             "originalPrice": 12,
             "ratings": 1,
@@ -146,7 +149,7 @@ export const Data =
         },
         {
             "title": "Virgin Mojito",
-            "img": ChickenFryPic,
+            "img": virginMojito,
             "price": 12,
             "originalPrice": 17,
             "ratings": 5,
