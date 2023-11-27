@@ -303,3 +303,46 @@ div.catagoryLi.active {
     }
   }
 }
+
+// Product page CSS
+div.productpage_price_section {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: attr(data-price);
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 10%;
+    bottom: 0%;
+    font-size: 45px;
+    font-family: "lilita one";
+    animation: popper 5s linear infinite;
+    animation-direction: reverse;
+  }
+  &::after {
+    content: attr(data-price);
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 10%;
+    top: 0;
+    font-size: 45px;
+    font-family: "lilita one";
+    animation: popper 5s linear infinite;
+    animation-delay: 150ms;
+  }
+}
+@keyframes popper {
+  0%,
+  100% {
+    top: 1%;
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    top: 100%;
+    filter: hue-rotate(360deg);
+  }
+}

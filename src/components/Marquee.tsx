@@ -5,8 +5,10 @@ interface Props {
         speed?: number;
         direction?: "reverse" | "normal";
     };
+    customStyle?: CSSProperties
+
 }
-function Marquee({ children, config }: Props) {
+function Marquee({ children, config, customStyle }: Props) {
 
     const [maqConfig, setMaqConfig] = useState({} as CSSProperties)
     useEffect(() => {
@@ -26,7 +28,7 @@ function Marquee({ children, config }: Props) {
     return (
         <>
             <div className="maq-holder">
-                <div className="marquee" style={config && maqConfig}>
+                <div className="marquee" style={{ ...maqConfig, ...customStyle }}>
                     {children}
                 </div>
             </div>

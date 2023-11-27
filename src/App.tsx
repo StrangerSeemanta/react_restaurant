@@ -13,6 +13,7 @@ import "aos/dist/aos.css";
 
 // CSS
 import "./App.css"
+import Footer from "./components/Footer";
 function App() {
   // const settings = ["Profile", "Account", "Dashboard"];
   useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
       <About />
       <Dishes />
       <Offers />
+      <Footer />
     </Fragment>
   )
 }

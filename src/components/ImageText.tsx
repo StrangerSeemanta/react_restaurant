@@ -32,13 +32,13 @@ function ImageText({ children, margin, imagePos, textBody, heading, headingColor
     return (
         <Fragment>
             <Box m={margin?.m && margin.m} my={margin?.my && margin.my} mt={margin?.mt && margin.mt} mb={margin?.mb && margin.mb} mx={margin?.mx && margin.mx} mr={margin?.mr && margin.mr} ml={margin?.ml && margin.ml}>
-                <Stack direction={{ md: "row", xs: "column" }} useFlexGap justifyContent="space-between">
+                <Stack direction={{ md: "row", xs: "column" }} useFlexGap justifyContent="space-between" spacing={10}>
                     {isImageOnLeft ?
                         <>
-                            <Box data-aos="flip-right" data-aos-duration="2500" sx={{ mt: 4, mx: { sm: "auto", md: "0px" }, py: 2, width: { xs: "100%", sm: "70%", md: "40%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
+                            <Box data-aos="flip-right" data-aos-duration="2500" sx={{ mx: { sm: "auto", md: "0px" }, py: 2, width: { xs: "100%", sm: "70%", md: "40%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
                                 {children}
                             </Box>
-                            <Box data-aos="flip-left" data-aos-duration="2500" display="flex" flexDirection="column" justifyContent="space-around" sx={{ mt: 4, py: 2, width: { xs: "100%", md: "50%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
+                            <Box data-aos="flip-left" data-aos-duration="2500" display="flex" flexDirection="column" gap={3} justifyContent="space-around" sx={{ py: 2, width: { xs: "100%", md: "50%" }, minHeight: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
                                 <Typography variant="h2" className="foodName" color={headingColor} fontFamily="'poppins',sans-serif" fontWeight="600">{heading}</Typography>
                                 <Typography variant='body1' fontWeight={300} >{textBody}</Typography>
                                 <Box>
@@ -49,14 +49,14 @@ function ImageText({ children, margin, imagePos, textBody, heading, headingColor
                         :
                         <>
 
-                            <Box data-aos="flip-left" data-aos-duration="2500" display="flex" flexDirection="column" justifyContent="space-around" sx={{ mt: 4, py: 2, width: { xs: "100%", md: "45%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
+                            <Box data-aos="flip-left" data-aos-duration="2500" display="flex" flexDirection="column" gap={3} justifyContent="space-around" sx={{ py: 2, width: { xs: "100%", md: "45%" }, minHeight: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
                                 <Typography variant="h2" className="foodName" color={headingColor} fontFamily="'poppins',sans-serif" fontWeight="600">{heading}</Typography>
                                 <Typography variant='body1' fontWeight={300} >{textBody}</Typography>
                                 <Box>
                                     {bottomComp}
                                 </Box>
                             </Box>
-                            <Box data-aos="flip-right" data-aos-duration="2500" sx={{ mt: 4, mx: { sm: "auto", md: "0px" }, py: 2, width: { xs: "100%", sm: "70%", md: "45%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
+                            <Box data-aos="flip-right" data-aos-duration="2500" sx={{ mx: { sm: "auto", md: "0px" }, py: 2, width: { xs: "100%", sm: "70%", md: "45%" }, height: { xs: "70vh", md: "70vh" }, background: "transparent" }}>
                                 {children}
                             </Box>
                         </>}

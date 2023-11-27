@@ -1,10 +1,10 @@
 {
   "country": [
-    "Bangladeshi Foods",
+    "Bangladeshi Food",
     "Thai Cuisine",
-    "Indian Dishes",
-    "American Flavours"
+    "Indian Dish",
+    "American Flavour"
   ],
-  "types": ["Appetizers", "Main Courses", "Deserts", "Beverages"],
+  "types": ["Appetizer", "Main Course", "Desert", "Beverage"],
   "specials": ["Mocktail", "Coffee", "MilkShake"]
 }

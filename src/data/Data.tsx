@@ -11,6 +11,19 @@ import IndianPack from "./../assets/indian_pack.svg"
 import BdPack from "./../assets/bd_pack.svg"
 import BlueOcean from "./../assets/blue_ocean.svg"
 import virginMojito from "./../assets/virgin_mojito.svg"
+import Pancake from "./../assets/Pancake_TD.svg"
+export interface DataProps {
+    title: string;
+    img: string;
+    price: number;
+    originalPrice: number;
+    ratings: number;
+    reviews: number;
+    catagory: string;
+    country: string;
+    special: boolean;
+    top: boolean
+}
 
 export const Data =
     [
@@ -20,10 +33,11 @@ export const Data =
             "price": 17.354,
             "originalPrice": 22.00,
             "ratings": 5,
-            "reviews": 123,
-            "catagory": "appetizers",
-            "country": "American Flavours",
-            "special": true
+            "reviews": 1123,
+            "catagory": "appetizer",
+            "country": "American Flavour",
+            "special": true,
+            "top": true
         },
         {
             "title": "Aglio E Olio",
@@ -31,10 +45,25 @@ export const Data =
             "price": 12,
             "originalPrice": 17,
             "ratings": 4,
-            "reviews": 123,
-            "catagory": "appetizers",
-            "country": "Bangladeshi Foods",
-            "special": true
+            "reviews": 420,
+            "catagory": "appetizer",
+            "country": "American Flavour",
+            "special": true,
+            "top": true
+
+        },
+        {
+            "title": "Pancake",
+            "img": Pancake,
+            "price": 36,
+            "originalPrice": 50,
+            "ratings": 5,
+            "reviews": 680,
+            "catagory": "desert",
+            "country": "American Flavour",
+            "special": true,
+            "top": true
+
         },
         {
             "title": "Burger",
@@ -43,9 +72,11 @@ export const Data =
             "originalPrice": 12,
             "ratings": 3,
             "reviews": 123,
-            "catagory": "appetizers",
+            "catagory": "appetizer",
             "country": "Thai Cuisine",
-            "special": true
+            "special": false,
+            "top": false
+
         },
         {
             "title": "Indian Kheer",
@@ -53,10 +84,11 @@ export const Data =
             "price": 22,
             "originalPrice": 38,
             "ratings": 2,
-            "reviews": 123,
-            "catagory": "deserts",
-            "country": "Indian Dishes",
-            "special": true
+            "reviews": 73,
+            "catagory": "desert",
+            "country": "Indian Dish",
+            "special": true,
+            "top": false
         },
         {
             "title": "Hyderabadi Biriyani",
@@ -65,9 +97,10 @@ export const Data =
             "originalPrice": 55,
             "ratings": 3,
             "reviews": 123,
-            "catagory": "main Courses",
-            "country": "Indian Dishes",
-            "special": true
+            "catagory": "main Course",
+            "country": "Indian Dish",
+            "special": true,
+            "top": false
         }, {
             "title": "Kacchi Biriyani",
             "img": Kacchi,
@@ -75,20 +108,22 @@ export const Data =
             "originalPrice": 72,
             "ratings": 5,
             "reviews": 123,
-            "catagory": "main Courses",
-            "country": "Bangladeshi Foods",
-            "special": true
+            "catagory": "main Course",
+            "country": "Bangladeshi Food",
+            "special": false,
+            "top": false
         },
         {
             "title": "Grilled Chicken ",
             "img": Grill,
             "price": 18,
             "originalPrice": 22,
-            "ratings": 6,
-            "reviews": 123,
-            "catagory": "appetizers",
-            "country": "American Flavours",
-            "special": true
+            "ratings": 5,
+            "reviews": 120,
+            "catagory": "appetizer",
+            "country": "American Flavour",
+            "special": false,
+            "top": false
         },
         {
             "title": "Cheesed Mutton ",
@@ -96,11 +131,12 @@ export const Data =
             "price": 27,
             "originalPrice": 32,
             "ratings": 2,
-            "reviews": 123,
-            "catagory": "main Courses",
-            "country": "Indian Dishes",
+            "reviews": 183,
+            "catagory": "main Course",
+            "country": "Indian Dish",
 
-            "special": true
+            "special": false,
+            "top": false
         },
         {
             "title": "Thai Package",
@@ -108,10 +144,11 @@ export const Data =
             "price": 98,
             "originalPrice": 112,
             "ratings": 4,
-            "reviews": 123,
-            "catagory": "main Courses",
+            "reviews": 23,
+            "catagory": "main Course",
             "country": "Thai Cuisine",
-            "special": true
+            "special": false,
+            "top": false
         },
         {
             "title": "Indian Special Thali",
@@ -119,10 +156,11 @@ export const Data =
             "price": 157,
             "originalPrice": 212,
             "ratings": 5,
-            "reviews": 223,
-            "catagory": "main Courses",
-            "country": "Indian Dishes",
-            "special": true
+            "reviews": 923,
+            "catagory": "main Course",
+            "country": "Indian Dish",
+            "special": true,
+            "top": false
         },
         {
             "title": "Bangladeshi Special Package",
@@ -130,32 +168,36 @@ export const Data =
             "price": 300,
             "originalPrice": 450,
             "ratings": 5,
-            "reviews": 323,
-            "catagory": "main Courses",
-            "country": "Bangladeshi Foods",
+            "reviews": 363,
+            "catagory": "main Course",
+            "country": "Bangladeshi Food",
 
-            "special": true
+            "special": true,
+            "top": false
         },
         {
             "title": "Blue Ocean",
             "img": BlueOcean,
-            "price": 7,
-            "originalPrice": 12,
-            "ratings": 1,
-            "reviews": 123,
+            "price": 17,
+            "originalPrice": 32,
+            "ratings": 5,
+            "reviews": 713,
             "catagory": "mocktail",
-            "country": "American Flavours",
-            "special": true
+            "country": "American Flavour",
+            "special": true,
+            "top": false
         },
         {
             "title": "Virgin Mojito",
             "img": virginMojito,
             "price": 12,
             "originalPrice": 17,
-            "ratings": 5,
-            "reviews": 123,
+            "ratings": 3,
+            "reviews": 423,
             "catagory": "mocktail",
-            "country": "American Flavours",
-            "special": true
+            "country": "American Flavour",
+            "special": false,
+            "top": false
         }
     ]
+

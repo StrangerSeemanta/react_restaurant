@@ -1,4 +1,4 @@
-import { Container, Box, Typography, Button } from "@mui/material"
+import { Container, Box, Typography, Button, Stack } from "@mui/material"
 import { Fragment } from "react"
 
 import ImageText from "./ImageText";
@@ -17,9 +17,10 @@ function Offers() {
     return (
         <Fragment>
             <section id="offers">
-                <Container sx={{ mt: 8 }} >
-                    <Box mt={3}>
-                        <Typography data-aos="slide-right" mb={4} variant="h1" fontWeight="400" textTransform="uppercase" fontFamily="'lilita one',sans-serif" textAlign="center" color="orange">Blogs</Typography>
+                <Container sx={{ mt: 9 }} >
+                    <Typography data-aos="slide-right" mb={5} variant="h1" fontWeight="400" textTransform="uppercase" fontFamily="'lilita one',sans-serif" textAlign="center" color="orange">Blogs</Typography>
+
+                    <Stack mt={3} spacing={5}>
 
                         {/* BLOGS */}
                         <ImageText
@@ -31,7 +32,7 @@ function Offers() {
                             bottomComp={
                                 <Box sx={{ width: "100%", height: "10vh", background: "rgb(252, 200, 209)" }}>
                                     <Marquee>
-                                        <Typography width="100%" height="100%" fontWeight="700" textAlign="center" display="flex" alignItems="center" justifyContent="center" variant='h5' color="rgb(209, 77, 114)" textTransform="capitalize">Get 20% Discount On Pancake</Typography>
+                                        <Typography width="100%" height="100%" fontWeight="700" textAlign="center" display="flex" alignItems="center" justifyContent="center" fontSize={{ xs: 20, sm: 25 }} color="rgb(209, 77, 114)" textTransform="capitalize">Get 20% Discount On Pancake</Typography>
                                     </Marquee>
                                 </Box>
                             }
@@ -62,11 +63,11 @@ function Offers() {
                         >
                             <ImageComp csx={{ my: 2 }} imageSource={AglioOlioDP} floatPic={AglioOlio} textOnFloat="Aglio E Olio" className="Aglio" />
                         </ImageText>
-                    </Box>
+                    </Stack>
 
                 </Container>
-            </section>
-        </Fragment>
+            </section >
+        </Fragment >
     )
 }
 
