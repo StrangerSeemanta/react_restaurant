@@ -152,7 +152,7 @@ function Layout({ product }: layoutProps) {
 }
 function DishDetailPage() {
     const { dishURL } = useParams();
-    const [productDetails, setProductDetails] = useState<DataProps | null>(null);
+    const [productDetails, setProductDetails] = useState<DataProps>(Data[0]);
 
     useEffect(() => {
         if (dishURL) {
