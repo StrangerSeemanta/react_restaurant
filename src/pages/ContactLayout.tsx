@@ -186,7 +186,9 @@ function ContactLayout() {
                 </Box>
             </Box>
             {/* Social Media Section */}
-            <SocialMedia />
+            <Box component={"section"} id="socialMedia">
+                <SocialMedia />
+            </Box>
 
             <Box mt={4} minHeight={"100vh"} py={2}>
                 <Container sx={{ minHeight: "100%" }} >

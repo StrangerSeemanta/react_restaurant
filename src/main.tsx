@@ -13,6 +13,7 @@ import ChatPage from './pages/ChatPage.tsx';
 import AccountPage, { SignInPage } from './pages/AccountPage.tsx';
 import SignUpPage from './pages/SignUpPage.tsx';
 import DishDetailPage from './pages/DishDetailPage.tsx';
+import WebsiteOrder from './pages/WebsiteOrder.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Router>
@@ -34,7 +35,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           </Route>
 
           <Route path="/chat" element={<TransitionWrapper><ChatPage /></TransitionWrapper>} />
-
+          <Route path="/website_order" element={<TransitionWrapper><WebsiteOrder /></TransitionWrapper>} />
           <Route path="/*" element={<TransitionWrapper><Nopage /></TransitionWrapper>} />
         </Routes>
       </>

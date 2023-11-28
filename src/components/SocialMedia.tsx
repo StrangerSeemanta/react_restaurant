@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, CSSProperties } from 'react'
+import { Fragment, ReactNode, CSSProperties, MouseEvent } from 'react'
 import { IconButton, Box, Stack, Typography } from "@mui/material"
 import { EastRounded } from "@mui/icons-material"
 import SocialTree from "./../assets/Lotties/socialTree.json"
@@ -13,25 +13,28 @@ interface SocialMediaCardProps {
     title: string;
     color: string;
     design?: CSSProperties;
-    href: string;
+    href?: string;
+    disableArrowIcon?: boolean;
+    onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
 }
-function SocialMediaCard({ icon, title, color, design, href }: SocialMediaCardProps) {
+export function SocialMediaCard({ icon, title, color, design, href, disableArrowIcon, onClick }: SocialMediaCardProps) {
     return (
         <Fragment>
-            <Box p={2} display={"flex"} justifyContent={"space-between"} component={"a"} href={href} sx={{ textDecoration: "none", transition: "all ease-in-out 350ms", cursor: "pointer", ":hover": { boxShadow: `0 0 24px ${color}`, rotate: "0deg" }, width: { xs: "250px", sm: "400px" }, height: { xs: "80px", sm: "90px" }, background: "white", borderRadius: "5px", boxShadow: "5px 5px 8px rgba(0,0,0,0.2)", ...design }}>
+            <Box p={2} display={"flex"} justifyContent={"space-between"} component={"a"} href={href && href} onClick={onClick} sx={{ textDecoration: "none", transition: "all ease-in-out 350ms", cursor: "pointer", ":hover": { boxShadow: `0 0 24px ${color}`, rotate: "0deg" }, width: { xs: "250px", sm: "400px" }, height: { xs: "80px", sm: "90px" }, background: "white", borderRadius: "5px", boxShadow: "5px 5px 8px rgba(0,0,0,0.2)", ...design }}>
                 <Box display={"flex"} justifyContent={"center"} alignItems={"center"} height={"100%"} width={"20%"} >
                     {icon}
                 </Box>
                 <Box display={"flex"} justifyContent={"center"} alignItems={"center"} height={"100%"} width={"60%"}  >
                     <Typography textAlign={"center"} color={color} fontFamily={"'lilita one',cursive"} fontSize={{ xs: "1rem", sm: "1.6rem" }} variant="h5" component={"h5"}>{title}</Typography>
                 </Box>
-                <Box display={"flex"} justifyContent={"flex-end"} alignItems={"center"} height={"100%"} width={"20%"}>
-                    <Box width={45} display={"flex"} justifyContent={"center"} alignItems={"center"} height={45} borderRadius={50} bgcolor={"whitesmoke"}>
-                        <IconButton>
-                            <EastRounded sx={{ fontSize: "1.8rem", color: "#d14d72" }} />
-                        </IconButton>
-                    </Box>
-                </Box>
+                {!disableArrowIcon &&
+                    <Box display={"flex"} justifyContent={"flex-end"} alignItems={"center"} height={"100%"} width={"20%"}>
+                        <Box width={45} display={"flex"} justifyContent={"center"} alignItems={"center"} height={45} borderRadius={50} bgcolor={"whitesmoke"}>
+                            <IconButton onClick={onClick}>
+                                <EastRounded sx={{ fontSize: "1.8rem", color: color }} />
+                            </IconButton>
+                        </Box>
+                    </Box>}
             </Box>
 
         </Fragment>
